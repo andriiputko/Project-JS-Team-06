@@ -15,6 +15,7 @@
 .main-category-secondary-text {
     color: var(--brand-color-lilla);
 }
+
 // **BOOK INSIDES
 .book-ctegory-list-card {
     display: flex;
@@ -32,7 +33,7 @@
     width: 335px;
     height: 485px;
     border-radius: 8px;
-    background: url(#), lightgray -4.635px -16px / 102.522% 106.839% no-repeat;
+    background: lightgray -4.635px -16px / 102.522% 106.839% no-repeat;
     margin: 18px 0px 14px 0px;
 }
 
@@ -86,6 +87,7 @@
 .book-category-hover-effect-container {
     position: relative;
     border-radius: 8px;
+    height: 485px;
 }
 .overlay {
     position: absolute;
@@ -93,7 +95,7 @@
     left: 0;
     right: 0;
     overflow: hidden;
-    width: 100%;
+    width: 335px;
     height: 0;
     transition: 250ms ease;
     display: flex;
@@ -111,4 +113,14 @@
 }
 .book-category-hover-effect-container:focus .overlay {
     height: 70px;
+}
+.book-category {
+    color: var(--color-gray);
+
+    font-size: 14px;
+
+    font-weight: 400;
+    line-height: 1.1;
+
+    text-transform: uppercase;
 }
