@@ -1,21 +1,17 @@
 :root {
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-    --bcg-black: #111111;
-    --bcg-black-main: #202024;
-    --bcg-white: #FFFFFF;
-    --bcg-white-main: #F6F6F6;
-    --brand-color-lilla: #4F2EE8;
-    --brand-color-yellow: #EAC645;
-    --color-gray: #B4AFAF;
-    --color-filter-light: #11111199;
-    --color-filter-dark:  #FFFFFF99;
-
-
-
-
-
-  }
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --bcg-black: #111111;
+  --bcg-black-main: #202024;
+  --bcg-white: #ffffff;
+  --bcg-white-main: #f6f6f6;
+  --brand-color-lilla: #4f2ee8;
+  --brand-color-yellow: #eac645;
+  --color-gray: #b4afaf;
+  --color-filter-light: #11111199;
+  --color-filter-dark: #ffffff99;
+  --color-border-shop-card: rgba(79, 46, 232, 0.4);
+}
