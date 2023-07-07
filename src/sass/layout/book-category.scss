@@ -33,7 +33,7 @@
     height: 485px;
     border-radius: 8px;
     background: url(#), lightgray -4.635px -16px / 102.522% 106.839% no-repeat;
-    margin: 18px 0px 0px 0px;
+    margin: 18px 0px 14px 0px;
 }
 
 .book-category-list-category-book-name {
@@ -80,12 +80,31 @@
     background-color: var(--brand-color-lilla);
 }
 // **
+
 // **HOVER FOR CARD
-.book-category-hover-effect-container {
+.book-category-list-card:hover {
+    cursor: pointer;
 }
-.book-category-hover-effect {
-    height: 70px;
+
+.book-category-hover-effect-container {
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: 250ms ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0px 52px;
     border-radius: 0px 0px 8px 8px;
-    background: #eac645;
+    background-color: #eac645;
+}
+.book-category-hover-effect-container:hover .overlay {
+    height: 70px;
 }
