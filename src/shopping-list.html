@@ -20,8 +20,26 @@
   </head>
   <body>
     <section>
-      <div class="container"></div>
+      <div class="container">
+        <h1 class="shopping-list-title">Shopping List</h1>
+        <div class="shopping-emty">
+          <p class="shopping-emty-message">
+            This page is empty, add some books and proceed to order.
+          </p>
+
+          <img
+            srcset="
+              ./images/mobile/empty-shopping-list-decor.png    1x,
+              ./images/mobile/empty-shopping-list-decor@2x.png 2x
+            "
+            src="./images/mobile/empty-shopping-list-decor.png"
+            alt="books"
+            class="shopping-emty-img"
+          />
+        </div>
+        <ul class="shopping-list"></ul>
+      </div>
     </section>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./shoppingList.js"></script>
   </body>
 </html>
