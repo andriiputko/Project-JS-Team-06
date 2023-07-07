@@ -82,12 +82,10 @@
 // **
 
 // **HOVER FOR CARD
-.book-category-list-card:hover {
-    cursor: pointer;
-}
 
 .book-category-hover-effect-container {
     position: relative;
+    border-radius: 8px;
 }
 .overlay {
     position: absolute;
@@ -106,5 +104,11 @@
     background-color: #eac645;
 }
 .book-category-hover-effect-container:hover .overlay {
+    height: 70px;
+}
+.book-category-hover-effect-container:active .overlay {
+    height: 70px;
+}
+.book-category-hover-effect-container:focus .overlay {
     height: 70px;
 }
