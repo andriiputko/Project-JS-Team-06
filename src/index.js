@@ -1,1 +1,1 @@
-import { booksCards } from './booksCards';
+import { booksCards } from './js/booksCards';
