@@ -17,14 +17,13 @@ const bookObj = fetchBookData()
     bookStorageArray.push(response[0]);
     bookStorageArray.push(response[3]);
     bookStorageArray.push(response[5]);
-    console.log(bookStorageArray);
     localStorage.setItem('shopping-list', JSON.stringify(bookStorageArray));
   })
   .catch(console.warn);
 
 let savedBooksList = JSON.parse(localStorage.getItem('shopping-list'));
 
-if (savedBooksList.length != 0) {
+if (savedBooksList) {
   emptyListMessageEl.classList.add('is-hidden');
 }
 
