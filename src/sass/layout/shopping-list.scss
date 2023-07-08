@@ -9,6 +9,17 @@
   letter-spacing: -1.28px;
 }
 
+.shopping-emty-message {
+  text-align: center;
+  width: 244px;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+.shopping-emty-img {
+  margin: 0 auto;
+}
+
 .shopping-list-item {
   position: relative;
   display: flex;
@@ -20,15 +31,20 @@
   background-color: var(--bcg-white);
 }
 
+.shopping-list-item:first-child {
+  margin-top: 40px;
+}
+
 .shopping-item-img {
   height: 142px;
   min-width: 100px;
   display: block;
   object-fit: cover;
   object-position: center;
+  border-radius: 8px;
 }
 
-.shopping-item-container {
+.shopping-descr-container {
   height: 68px;
   width: 193px;
   overflow: hidden;
@@ -50,6 +66,10 @@
   font-weight: 700;
   line-height: 1.13;
   letter-spacing: -0.64px;
+  text-overflow: ellipsis;
+  width: 144px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .shopping-item-btn {
@@ -61,4 +81,8 @@
   border: none;
   border-radius: 50%;
   background-color: var(--brand-color-lilla);
+}
+
+.is-hidden {
+  display: none;
 }
