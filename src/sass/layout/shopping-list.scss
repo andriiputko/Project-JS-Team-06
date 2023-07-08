@@ -1,12 +1,13 @@
-// body {
-//   background-color: var(--bcg-white-main);
-// }
-
 .shopping-list-title {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.19;
   letter-spacing: -1.28px;
+  margin-top: 40px;
+}
+
+.shopping-list-brand {
+  color: var(--brand-color-lilla);
 }
 
 .shopping-emty-message {
@@ -14,6 +15,8 @@
   width: 244px;
   margin: 0 auto;
   margin-top: 120px;
+  margin-bottom: 14px;
+  color: var(--color-shop-empty-msg);
 }
 
 .shopping-emty-img {
@@ -51,6 +54,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Number of lines to display */
   -webkit-box-orient: vertical;
+  margin-bottom: 16px;
 }
 
 .shopping-item-descr {
@@ -70,6 +74,15 @@
   width: 144px;
   overflow: hidden;
   white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.shopping-list-name {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.36px;
+  margin-bottom: 8px;
+  color: var(--color-gray);
 }
 
 .shopping-item-btn {
@@ -81,6 +94,14 @@
   border: none;
   border-radius: 50%;
   background-color: var(--brand-color-lilla);
+}
+
+.shopping-item-author {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.17;
+  letter-spacing: -0.48px;
+  color: var(--color-gray);
 }
 
 .is-hidden {
