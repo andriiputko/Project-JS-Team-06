@@ -39,10 +39,17 @@ export function generateBookCategoryElements(data) {
   return elements;
 }
 
-instanceBooksAPI.fetchBooks().then(data => {
-  const elements = generateBookCategoryElements(data);
+export async function showCards() {
+  try {
+    const data = await instanceBooksAPI.fetchBooks();
+    const elements = await generateBookCategoryElements(data);
 
-  elements.forEach(element => {
-    booksContainer.appendChild(element);
-  });
-});
+    elements.forEach(element => {
+      booksContainer.appendChild(element);
+    });
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+showCards();
