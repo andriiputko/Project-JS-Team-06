@@ -1,7 +1,8 @@
 
-    <div class="backdrop-book" data-modal>
+    <!-- Modal Window -->
+    <div class="backdrop-book is-hidden" data-modal-book>
       <div class="modal-book">
-        <button class="modal-book-close" type="button" data-modal-close>
+        <button class="modal-book-close" type="button" data-modal-book-close>
           <svg class="modal-book-close-icon" width="24" height="24">
             <use href="./images/icons.svg#icon-close"></use>
           </svg>
@@ -17,23 +18,40 @@
         <ul class="trade-list">
           <li class="trade-item">
             <a href="#">
-              <svg class="trade-icon" width="62" height="19"></svg>
+              <img
+                src="./images/amazon.png"
+                alt="amazon"
+                width="62"
+                height="19"
+              />
+              <!-- <svg class="trade-icon" width="62" height="19">
+                <use href="./images/icons.svg#"></use>
+              </svg> -->
             </a>
           </li>
           <li class="trade-item">
             <a href="#">
-              <svg class="trade-icon" width="33" height="32"></svg>
+              <!-- <svg class="trade-icon" width="33" height="32"></svg> -->
+              <img
+                src="./images/apple.png"
+                alt="apple"
+                width="33"
+                height="32"
+              />
             </a>
           </li>
           <li class="trade-item">
             <a href="#">
-              <svg class="trade-icon" width="38" height="36"></svg>
+              <img src="./images/book.png" alt="book" width="38" height="36" />
+              <!-- <svg class="trade-icon" width="38" height="36"></svg> -->
             </a>
           </li>
         </ul>
-        <button class="add-shopping-list" type="button" data-modal-add>
-          add to shopping list
-        </button>
+        <div class="btn-box">
+          <button class="btn-add-shopping-list" type="button" data-modal-add>
+            ADD TO SHOPPING LIST
+          </button>
+        </div>
       </div>
     </div>
-
+  
