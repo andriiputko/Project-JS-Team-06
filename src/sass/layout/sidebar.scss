@@ -4,7 +4,6 @@
     // width: 335px;
     max-width: 335px;
     gap: 40px;
-    margin-right: 40px;
   
     @media screen and (min-width: 768px) {
       // width: 672px;
@@ -21,3 +20,7 @@
     }
   }
   
+  .main {
+    display: flex;
+    flex-direction: row;
+  }
