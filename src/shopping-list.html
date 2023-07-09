@@ -13,34 +13,44 @@
     />
   </head>
   <body>
-    <section>
-      <div class="container main-container">
-        <aside class="side-bar">
-          <include src="./partials/support.html"></include>
-        </aside>
-        <div>
-          <h1 class="shopping-list-title">
-            Shopping <span class="shopping-list-brand">List</span>
-          </h1>
-          <div class="shopping-emty">
-            <p class="shopping-emty-message">
-              This page is empty, add some books and proceed to order.
-            </p>
-  
-            <img
+    <div class="container main-container">
+      <aside class="side-bar shopping-list-sidebar">
+        <include src="./partials/support.html"></include>
+      </aside>
+      <section class="shopping-list-section">
+        <h1 class="shopping-list-title">
+          Shopping <span class="shopping-list-brand">List</span>
+        </h1>
+        <div class="shopping-emty">
+          <p class="shopping-emty-message">
+            This page is empty, add some books and proceed to order.
+          </p>
+
+          <picture>
+            <source
               srcset="
                 ./images/mobile/empty-shopping-list-decor.png    1x,
                 ./images/mobile/empty-shopping-list-decor@2x.png 2x
               "
+              media="(max-width: 767.5px)"
+            />
+            <source
+              srcset="
+                ./images/tablet/empty-shopping-list-decor.png    1x,
+                ./images/tablet/empty-shopping-list-decor@2x.png 2x
+              "
+              media="(min-width: 767px)"
+            />
+            <img
+              class="shopping-emty-img"
               src="./images/mobile/empty-shopping-list-decor.png"
               alt="books"
-              class="shopping-emty-img"
             />
-          </div>
-          <ul class="shopping-list"></ul>
+          </picture>
         </div>
-      </div>
-    </section>
+        <ul class="shopping-list"></ul>
+      </section>
+    </div>
     <script type="module" src="./shoppingList.js"></script>
   </body>
 </html>

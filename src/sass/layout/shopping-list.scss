@@ -1,3 +1,17 @@
+.side-bar.shopping-list-sidebar {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .side-bar.shopping-list-sidebar {
+    display: block;
+  }
+}
+
+.shopping-list-section {
+  flex-grow: 1;
+}
+
 .shopping-list-title {
   font-size: 32px;
   font-weight: 700;
@@ -6,8 +20,20 @@
   margin-top: 40px;
 }
 
+@media (min-width: 768px) {
+  .shopping-list-title {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
+}
+
 .shopping-list-brand {
   color: var(--brand-color-lilla);
+}
+
+.support-section {
+  margin-top: 40px;
 }
 
 .shopping-emty-message {
@@ -17,6 +43,15 @@
   margin-top: 120px;
   margin-bottom: 14px;
   color: var(--color-shop-empty-msg);
+}
+
+@media (min-width: 768px) {
+  .shopping-emty-message {
+    width: 349px;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.36px;
+  }
 }
 
 .shopping-emty-img {
@@ -38,23 +73,26 @@
   margin-top: 40px;
 }
 
+@media (min-width: 768px) {
+  .shopping-list-item {
+    padding: 24px;
+  }
+}
+
 .shopping-item-img {
-  height: 142px;
   min-width: 100px;
+  height: 142px;
   display: block;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
 }
 
-.shopping-descr-container {
-  height: 68px;
-  width: 193px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Number of lines to display */
-  -webkit-box-orient: vertical;
-  margin-bottom: 16px;
+@media (min-width: 768px) {
+  .shopping-item-img {
+    min-width: 116px;
+    height: 165px;
+  }
 }
 
 .shopping-item-descr {
@@ -62,7 +100,15 @@
   -webkit-line-clamp: 3; /* Number of lines to display */
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 30px;
+  letter-spacing: -0.56px;
+}
+
+@media (min-width: 768px) {
+  .shopping-item-descr {
+    height: 53px;
+    margin-bottom: 48px;
+  }
 }
 
 .shopping-item-title {
@@ -77,6 +123,12 @@
   margin-bottom: 4px;
 }
 
+@media (min-width: 768px) {
+  .shopping-item-title {
+    width: 480px;
+  }
+}
+
 .shopping-list-name {
   font-size: 12px;
   line-height: 1.17;
@@ -85,15 +137,30 @@
   color: var(--color-gray);
 }
 
+@media (min-width: 768px) {
+  .shopping-list-name {
+    margin-bottom: 14px;
+  }
+}
+
 .shopping-item-btn {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 14px;
+  top: 14px;
   width: 28px;
   height: 28px;
   border: none;
   border-radius: 50%;
   background-color: var(--brand-color-lilla);
+}
+
+@media (min-width: 768px) {
+  .shopping-item-btn {
+    right: 24px;
+    top: 24px;
+    width: 34px;
+    height: 34px;
+  }
 }
 
 .shopping-item-author {
