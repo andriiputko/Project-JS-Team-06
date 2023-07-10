@@ -1,14 +1,20 @@
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector(".book-category-hover-effect-container"),
-    closeModalBtn: document.querySelector("[data-modal-book-close]"),
-    modal: document.querySelector("[data-modal-book]"),
-  };
+export const modalFunc = async () => {
+    const bookCategoryList = document.querySelector('.book-category-list');
+    const modalEl = document.querySelector('[data-modal-book]');
+    const buttonCloseEl = document.querySelector('[data-modal-book-close]');
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+  const handleImageClick = event => {
+      console.log(event.target.dataset.id);
+      if (event.target.nodeName !== 'IMG') {
+          return;  
+      };
+      modalEl.classList.remove('is-hidden'); 
+    };
+    const handleCloseClick = event => {
+        modalEl.classList.add('is-hidden');
+    };
 
-  function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
-  }
-})();
+    buttonCloseEl.addEventListener('click', handleCloseClick);
+    bookCategoryList.addEventListener('click', handleImageClick);
+    
+};
