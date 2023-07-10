@@ -1,8 +1,9 @@
 import fonds from './fonds';
-// import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 
-// import 'swiper/swiper.min.css';
-// import 'swiper/swiper.scss';
+import 'swiper/swiper.min.css';
+import 'swiper/swiper.scss';
+
 
 
 const list = document.querySelector('.support-list');
@@ -27,7 +28,7 @@ function makeMarkup({ url, title, img }, index) {
 list.innerHTML = html;
 
 const str = fonds.map((element, index) => {
-  return '<li class="support-item"> ссылка на фонд <a class="support-link" href=""></a></li>';
+  return '<li class="support-item"> <a class="support-link" href=""></a></li>';
 });
 
 const swiper = new Swiper('.swiper', {
