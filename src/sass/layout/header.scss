@@ -7,7 +7,12 @@
   align-items: center;
 }
 
-.header-logo-icon {
+.header-logo-icon{
+  width: 24px;
+  height: 24px;
+}
+
+.header-logo-shop {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -83,5 +88,6 @@ input:checked[type='checkbox']:before {
   width: 28px;
   height: 28px;
   cursor: pointer;
+  stroke: black;
 //   margin-left: 14px;
 }
