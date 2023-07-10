@@ -3,10 +3,7 @@ import fonds from './fonds';
 
 // import 'swiper/swiper.min.css';
 // import 'swiper/swiper.scss';
-import Swiper, { Navigation } from 'swiper';
 
-import 'swiper/swiper.min.css';
-import 'swiper/modules/navigation/navigation.min.css';
 
 const list = document.querySelector('.support-list');
 
