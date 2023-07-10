@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping List</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
-      crossorigin="anonymous"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,27 +13,45 @@
     />
   </head>
   <body>
-    <section>
-      <div class="container">
-        <h1 class="shopping-list-title">Shopping List</h1>
-        <div class="shopping-emty">
-          <p class="shopping-emty-message">
+    <div class="container main-container">
+      <aside class="side-bar shopping-list-sidebar">
+        <include src="./partials/support.html"></include>
+      </aside>
+      <section class="shopping-list-section">
+        <h1 class="shopping-list-title">
+          Shopping <span class="shopping-list-brand">List</span>
+        </h1>
+        <div class="shopping-empty">
+          <p class="shopping-empty-message">
             This page is empty, add some books and proceed to order.
           </p>
 
-          <img
-            srcset="
-              ./images/mobile/empty-shopping-list-decor.png    1x,
-              ./images/mobile/empty-shopping-list-decor@2x.png 2x
-            "
-            src="./images/mobile/empty-shopping-list-decor.png"
-            alt="books"
-            class="shopping-emty-img"
-          />
+          <picture>
+            <source
+              srcset="
+                ./images/mobile/empty-shopping-list-decor.png    1x,
+                ./images/mobile/empty-shopping-list-decor@2x.png 2x
+              "
+              media="(max-width: 767.5px)"
+            />
+            <source
+              srcset="
+                ./images/tablet/empty-shopping-list-decor.png    1x,
+                ./images/tablet/empty-shopping-list-decor@2x.png 2x
+              "
+              media="(min-width: 767px)"
+            />
+            <img
+              oncontextmenu="return false;"
+              class="shopping-empty-img"
+              src="./images/mobile/empty-shopping-list-decor.png"
+              alt="books"
+            />
+          </picture>
         </div>
         <ul class="shopping-list"></ul>
-      </div>
-    </section>
+      </section>
+    </div>
     <script type="module" src="./shoppingList.js"></script>
   </body>
 </html>

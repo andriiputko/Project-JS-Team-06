@@ -1,9 +1,10 @@
-.section {
-    padding: 40px 0px;
-}
 .section-book-category {
+    padding: 40px 0px;
     display: flex;
     flex-direction: column;
+}
+.darkmode .section-book-category {
+    background-color: var(--bcg-black);
 }
 .main-category-text {
     font-size: 32px;
@@ -11,6 +12,9 @@
     line-height: 1.6;
     color: var(--bcg-black);
     margin-bottom: 40px;
+}
+.darkmode .main-category-text {
+    color: var(--bcg-white);
 }
 .main-category-secondary-text {
     color: var(--brand-color-lilla);
@@ -57,7 +61,9 @@
     text-transform: uppercase;
     margin-bottom: 4px;
 }
-
+.darkmode .book-category-list-category-book-name {
+    color: var(--bcg-white);
+}
 .book-category-list-book-author {
     color: var(--color-gray);
     font-size: 12px;
@@ -86,6 +92,9 @@
     border: 2px solid var(--brand-color-lilla);
     transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 }
+.darkmode .book-category-btn {
+    color: var(--bcg-white);
+}
 .book-category-btn:hover,
 .book-category-btn:active,
 .book-category-btn:focus {
@@ -97,6 +106,7 @@
 // **HOVER FOR CARD
 
 .book-category-hover-effect-container {
+    cursor: pointer;
     position: relative;
     border-radius: 8px;
     height: 485px;
@@ -108,8 +118,10 @@
     right: 0;
     overflow: hidden;
     width: 335px;
-    height: 0;
-    transition: 250ms ease;
+    height: 40px;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 250ms ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,13 +131,13 @@
     background-color: #eac645;
 }
 .book-category-hover-effect-container:hover .overlay {
-    height: 14%;
+    transform: scaleY(1);
 }
 .book-category-hover-effect-container:active .overlay {
-    height: 14%;
+    transform: scaleY(1);
 }
 .book-category-hover-effect-container:focus .overlay {
-    height: 14%;
+    transform: scaleY(1);
 }
 .book-category {
     color: var(--color-gray);
@@ -153,7 +165,7 @@
         width: 218px;
     }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
     .book-category-list {
         gap: 24px;
     }
