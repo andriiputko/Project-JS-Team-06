@@ -118,8 +118,10 @@
     right: 0;
     overflow: hidden;
     width: 335px;
-    height: 0;
-    transition: 250ms ease;
+    height: 40px;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 250ms ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,13 +131,13 @@
     background-color: #eac645;
 }
 .book-category-hover-effect-container:hover .overlay {
-    height: 14%;
+    transform: scaleY(1);
 }
 .book-category-hover-effect-container:active .overlay {
-    height: 14%;
+    transform: scaleY(1);
 }
 .book-category-hover-effect-container:focus .overlay {
-    height: 14%;
+    transform: scaleY(1);
 }
 .book-category {
     color: var(--color-gray);
