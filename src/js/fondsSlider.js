@@ -1,8 +1,8 @@
 import fonds from './fonds';
-import Swiper, { Navigation } from 'swiper';
+// import Swiper, { Navigation } from 'swiper';
 
-import 'swiper/swiper.min.css';
-import 'swiper/swiper.scss';
+// import 'swiper/swiper.min.css';
+// import 'swiper/swiper.scss';
 
 
 
