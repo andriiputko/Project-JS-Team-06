@@ -1,4 +1,7 @@
 import booksAPI from './booksAPI.js';
+
+import { modalFunc } from './modal-open-close';
+  
 const instanceBooksAPI = new booksAPI();
 const booksContainer = document.querySelector('.book-category-lists');
 export function generateBookCategoryElements(data) {
@@ -47,6 +50,9 @@ export async function showCards() {
     elements.forEach(element => {
       booksContainer.appendChild(element);
     });
+
+modalFunc();
+
   } catch (error) {
     console.error('Error:', error);
   }
