@@ -1,5 +1,5 @@
 {{#each this}}
-  <li class='shopping-list-item'>
+  <li class='shopping-list-item' data-id='{{this._id}}'>
     <img
       class='shopping-item-img'
       src='{{this.book_image}}'
@@ -7,12 +7,23 @@
     />
     <div class='shopping-item-info'>
       <h2 class='shopping-item-title'>{{this.title}}</h2>
-      <p>{{this.list_name}}</p>
-      <div class='shopping-item-container'>
-
-        <p class='shopping-item-descr'>{{this.description}}</p>
-      </div>
-      <p>{{this.author}}</p>
+      <p class='shopping-list-name'>{{this.list_name}}</p>
+      <p class='shopping-item-descr'>{{this.description}}</p>
+      <p class='shopping-item-author'>{{this.author}}</p>
+      <ul>
+        <li><a href='#'><img
+              src='../images/amazon-icon.png'
+              alt='Amazon'
+            /></a></li>
+        <li><a href='#'><img
+              src='../images/open-book-icon.png'
+              alt='Open book'
+            /></a></li>
+        <li><a href='#'><img
+              src='../images/book-shop-icon.png'
+              alt='Shop icon'
+            /></a></li>
+      </ul>
     </div>
     <button class='shopping-item-btn'></button>
   </li>

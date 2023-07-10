@@ -12,8 +12,20 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
     .container {
         max-width: 1440px;
+    }
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media screen and (min-width: 1440px) {
+    .main-container{
+        flex-direction: row;
     }
 }
