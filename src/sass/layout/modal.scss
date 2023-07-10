@@ -1,162 +1,163 @@
 /* Modal Window */
 
 .backdrop-book {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 20px 0;
-    transition: opacity 500ms, visibility 500ms, transform 500ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scale(0.8);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
+  transition: opacity 500ms, visibility 500ms, transform 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(0, 0, 0, 0.215);
 }
 
 .backdrop-book.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: scale(1.2);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.2);
 }
 
 .modal-book {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    max-width: 335px;
-    max-height: 762px;
-    background-color: var(--bcg-white-main);
-    border-radius: 18px;
-    border: 2px solid var(--bcg-black);
-    transition: transform 500ms;
-    padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  max-width: 335px;
+  max-height: 762px;
+  background-color: var(--bcg-white-main);
+  border-radius: 18px;
+  border: 2px solid var(--bcg-black);
+  transition: transform 500ms;
+  padding: 40px 24px;
+  transform: scale(0.8);
 }
 
 @media screen and (min-width: 768px) {
-    .modal-book {
-        max-width: 579px;
-        max-height: 465px;
-        padding: 40px;
-    }
+  .modal-book {
+    max-width: 579px;
+    max-height: 465px;
+    padding: 40px;
+  }
 }
 
 /* overflow: hidden;  видалити в js */
 
 .backdrop-book.is-hidden .modal-book {
-    transform: scale(0);
+  transform: scale(0);
 }
 
 .modal-book-close {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    stroke: var(--bcg-black);
-    transition-property: fill;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: transparent;
-    border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  stroke: var(--bcg-black);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent;
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
-    .modal-book-close {
-        top: 24px;
-        right: 24px;
-    }
+  .modal-book-close {
+    top: 24px;
+    right: 24px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .modal-book-close-icon {
-        width: 28px;
-        height: 28px;
-    }
+  .modal-book-close-icon {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .modal-book-close:hover {
-    stroke: var(--brand-color-lilla);
+  stroke: var(--brand-color-lilla);
 }
 
 .modal-book-img {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 @media screen and (min-width: 768px) {
-    .modal-book-img {
-        width: 192px;
-        height: 281px;
-    }
+  .modal-book-img {
+    width: 192px;
+    height: 281px;
+  }
 }
 
 .modal-book-name {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.12;
-    margin-top: 14px;
-    letter-spacing: -0.04em;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  margin-top: 14px;
+  letter-spacing: -0.04em;
 }
 
 @media screen and (min-width: 768px) {
-    .modal-book-img {
-        font-size: 24px;
-        line-height: 1.16;
-    }
+  .modal-book-img {
+    font-size: 24px;
+    line-height: 1.16;
+  }
 }
 
 .modal-book-author {
-    color: var(--color-gray);
-    font-weight: 400;
-    font-style: italic;
-    font-size: 12px;
-    line-height: 1.16;
-    margin-top: 4px;
-    margin-bottom: 18px;
-    letter-spacing: -0.04em;
+  color: var(--color-gray);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.16;
+  margin-top: 4px;
+  margin-bottom: 18px;
+  letter-spacing: -0.04em;
 }
 
 @media screen and (min-width: 768px) {
-    .modal-book-author {
-        font-size: 14px;
-        line-height: 1.28;
-    }
+  .modal-book-author {
+    font-size: 14px;
+    line-height: 1.28;
+  }
 }
 
 .trade-list {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 14px;
 }
 
 .btn-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 0;
 }
 
 .btn-add-shopping-list {
-    font-weight: 700;
-    border-radius: 40px;
-    border: 2px solid var(--brand-color-lilla);
-    letter-spacing: -0.01em;
-    padding: 14px 28px;
+  font-weight: 700;
+  border-radius: 40px;
+  border: 2px solid var(--brand-color-lilla);
+  letter-spacing: -0.01em;
+  padding: 14px 28px;
 }
 
 @media screen and (min-width: 768px) {
-    .btn-add-shopping-list {
-        font-size: 18px;
-        line-height: 1.33;
-    }
+  .btn-add-shopping-list {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .btn-add-shopping-list:hover {
-    background-color: var(--brand-color-lilla);
-    color: var(--bcg-white);
+  background-color: var(--brand-color-lilla);
+  color: var(--bcg-white);
 }
