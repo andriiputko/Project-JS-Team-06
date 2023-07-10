@@ -36,26 +36,33 @@
   margin-top: 40px;
 }
 
-.shopping-emty-message {
+.shopping-empty-message {
   text-align: center;
   width: 244px;
   margin: 0 auto;
   margin-top: 120px;
   margin-bottom: 14px;
   color: var(--color-shop-empty-msg);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
 }
 
 @media (min-width: 768px) {
-  .shopping-emty-message {
+  .shopping-empty-message {
     width: 349px;
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.36px;
+    margin-top: 140px;
   }
 }
 
-.shopping-emty-img {
+.shopping-empty-img {
   margin: 0 auto;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
 }
 
 .shopping-list-item {
@@ -144,6 +151,9 @@
 }
 
 .shopping-item-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   right: 14px;
   top: 14px;
@@ -163,6 +173,19 @@
   }
 }
 
+.shopping-item-btn-icon {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .shopping-item-btn-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
 .shopping-item-author {
   font-size: 12px;
   font-style: italic;
@@ -173,4 +196,61 @@
 
 .is-hidden {
   display: none;
+}
+
+.shopping-list-links {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  gap: 8px;
+  filter: grayscale(100%);
+}
+
+@media (min-width: 768px) {
+  .shopping-list-links {
+    align-items: center;
+    gap: 16px;
+    right: 24px;
+    bottom: 24px;
+  }
+}
+
+.shopping-link-img {
+  transition: filter 300ms;
+}
+
+.shopping-link-img:hover {
+  filter: drop-shadow(1px 3px 3px grey);
+}
+
+.shopping-link-img.amazon-img {
+  width: 32px;
+}
+
+@media (min-width: 768px) {
+  .shopping-link-img.amazon-img {
+    width: 48px;
+  }
+}
+
+.shopping-link-img.book-img {
+  width: 16px;
+}
+
+@media (min-width: 768px) {
+  .shopping-link-img.book-img {
+    width: 28px;
+  }
+}
+
+.shopping-link-img.shop-img {
+  width: 16px;
+}
+
+@media (min-width: 768px) {
+  .shopping-link-img.shop-img {
+    width: 32px;
+  }
 }
