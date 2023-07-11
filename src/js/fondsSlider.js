@@ -1,5 +1,5 @@
 import fonds from './fonds';
-import Swiper from 'swiper';
+// import Swiper from 'swiper';
 
 // import '.././node_modules/swiper/modules/swiper.min.css';
 // import '_../node_modules/swiper/modules/swiper.scss';
@@ -34,19 +34,19 @@ const str = fonds.map((element, index) => {
   return '<li class="support-item"> <a class="support-link" href=""></a></li>';
 });
 
-const swiper = new Swiper('.swiper', {
-  direction: 'vertical',
-  slidesPerView: 4,
-  rewind: true,
-  spaceBetween: 20,
-  effect: 'slide',
-  breakpoints: {
-    480: {
-      slidesPerView: 6,
-    },
-  },
-  modules: [Navigation],
-  navigation: {
-    nextEl: '.swiper-next',
-  },
-});
+// const swiper = new Swiper('.swiper', {
+//   direction: 'vertical',
+//   slidesPerView: 4,
+//   rewind: true,
+//   spaceBetween: 20,
+//   effect: 'slide',
+//   breakpoints: {
+//     480: {
+//       slidesPerView: 6,
+//     },
+//   },
+//   modules: [Navigation],
+//   navigation: {
+//     nextEl: '.swiper-next',
+//   },
+// });
