@@ -25,6 +25,7 @@
 .modal-book {
   position: relative;
   overflow: hidden;
+  overflow-y: auto;
   width: 100%;
   height: 100%;
   max-width: 335px;
@@ -35,7 +36,17 @@
   transition: transform 500ms;
   padding: 40px 24px;
   transform: scale(0.8);
+  transform: translateY(33%);
+  z-index: 1;
 }
+
+// Доробити
+// .darkmode.modal-book {
+//   background-color: var(--bcg-black-main);
+// }
+// .darkmode.modal-book {
+//   background-color: var(—-background);
+// }
 
 @media screen and (min-width: 768px) {
   .modal-book {
@@ -43,6 +54,12 @@
     max-height: 465px;
     padding: 40px;
   }
+}
+
+@media screen and (min-width: 1440px) {
+    .modal-book {
+    height: 100%;
+    }
 }
 
 /* overflow: hidden;  видалити в js */
@@ -121,6 +138,7 @@
     font-size: 24px;
     line-height: 1.16;
     margin-top: 0;
+    max-width: 90%;
   }
 }
 
@@ -156,6 +174,15 @@
     }
 }
 
+.trade-link-img {
+    filter: grayscale(100%);
+    transition: filter 300ms;
+}
+
+.trade-link-img:hover {
+  filter: grayscale(100%) drop-shadow(1px 3px 3px grey);
+}
+
 .btn-box {
   display: flex;
   justify-content: center;
@@ -169,12 +196,14 @@
   border: 2px solid var(--brand-color-lilla);
   letter-spacing: -0.01em;
   padding: 14px 28px;
+  width: auto;
 }
 
 @media screen and (min-width: 768px) {
   .btn-add-shopping-list {
     font-size: 18px;
     line-height: 1.33;
+    width: 100%;
   }
 }
 
