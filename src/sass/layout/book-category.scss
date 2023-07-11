@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 .darkmode .section-book-category {
-  background-color: var(--bcg-black);
+  background-color: var(--bcg-black-main);
 }
 .main-category-text {
   font-size: 32px;
@@ -93,6 +93,7 @@
   transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 }
 .darkmode .book-category-btn {
+  background-color: var(--bcg-black-main);
   color: var(--bcg-white);
 }
 .book-category-btn:hover,
