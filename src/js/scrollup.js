@@ -33,6 +33,21 @@ function scrollToTop() {
   }
 }
 
+
+function updateScrollButtonVisibility() {
+  const scrollToTopButton = document.getElementById('scrollToTopButton');
+  if (window.pageYOffset > 100) {
+    scrollToTopButton.style.display = 'block';
+  } else {
+    scrollToTopButton.style.display = 'none';
+  }
+}
+
+window.addEventListener(
+  'scroll',
+  throttle(function () {
+    updateScrollButtonVisibility();
+
 window.addEventListener(
   'scroll',
   throttle(function () {
@@ -42,6 +57,7 @@ window.addEventListener(
     } else {
       scrollToTopButton.style.display = 'none';
     }
+
   }, 200)
 );
 
@@ -52,4 +68,9 @@ scrollToTopButton.addEventListener(
   debounce(function () {
     scrollToTop();
   }, 300)
+
+);
+
+updateScrollButtonVisibility();
+
 );
