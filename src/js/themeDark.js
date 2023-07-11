@@ -1,4 +1,5 @@
 
+
 // "use strict";
 
 // let darkMode = localStorage.getItem('darkMode');
@@ -41,6 +42,7 @@
 //   }
 // });
 
+
 'use strict';
 
 let darkMode = localStorage.getItem('darkMode');
@@ -48,6 +50,7 @@ const darkModeToggle = document.querySelector('#dark-mode-toggle');
 const modal = document.querySelector('[data-modal-book]');
 
 const enableDarkMode = () => {
+
   setTimeout(() => {
     document.body.classList.add('darkmode');
     modal.classList.add('darkmode'); // Додано клас 'darkmode' до контейнера модального вікна

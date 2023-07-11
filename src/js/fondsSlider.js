@@ -1,52 +1,55 @@
 import fonds from './fonds';
-import Swiper, { Navigation } from 'swiper';
+import Swiper from 'swiper';
+import '../../node_modules/swiper/swiper.scss';
+import { fonds } from './fonds';
 
-// import '.././node_modules/swiper/modules/swiper.min.css';
-// import '_../node_modules/swiper/modules/swiper.scss';
+const supportListEl = document.querySelector('.support-list');
+const upBtn = document.querySelector('.swiper-next');
 
-// import 'swiper/swiper.min.css';
-// import 'swiper/modules/navigation/navigation.min.css';
+upBtn.addEventListener('click', onNext);
 
-// import '../../node_modules/swiper/swiper-bundle.min.css';
+function findImage(name, arrImgFounds) {
+return arrImgFounds.find(found => found.title === name);
+};
 
-const list = document.querySelector('#support-list');
+function renderMarkup(arr) {
+  supportListEl.insertAdjacentHTML('beforeend', arr);
+};
 
-const html = fonds.map(makeMarkup).join('');
+const markUp = fonds
+  .map(({ title, url }, index) => {
+    const number = (index + 1).toString().padStart(2, '0');
+    const imgfinded = findImage(title, fonds );
+    const img = imgfinded.img;    
 
-function makeMarkup({ url, title, img }, index) {
-  const digits = (index + 1).toString().padStart(2, '0');
+    return `<li class="support-item swiper-slide">
+  <a href="${url}" class="support-link" aria-label="${title}" target="_blank" rel="noopener norefferer nofollow">
+  <p class="support-number">${number}</p>
+  <img class="support-img"
+    srcset="${img.normal} 1x, ${img.retina} 2x"
+    src="${img.normal}" type="image/png" alt="${title}">
+  
+  </a></li>`;
+  })
+  .join('');
 
-  return `
-  <li class="swiper-slide">
-        <div class="support-item">
-        <span class="support-index">${digits}</span>
-        <a class="support-link" href="${url}" target="_blank" rel="noopener noreferrer nofollow">
-            <img
-                srcset="${img.normal} 1x, ${img.retina} 2x"
-                src="${img.normal}" type="image/png" alt="${title}">
-        </a>
-    </li>`;
-}
-
-list.innerHTML = html;
-
-const str = fonds.map((element, index) => {
-  return '<li class="support-item"> <a class="support-link" href=""></a></li>';
-});
+renderMarkup(markUp);
+renderMarkup(markUp);
 
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
-  slidesPerView: 4,
   rewind: true,
+  slidesPerView: 4,
   spaceBetween: 20,
   effect: 'slide',
   breakpoints: {
-    480: {
+    768: {
       slidesPerView: 6,
+      spaceBetween: 20,
     },
   },
-  modules: [Navigation],
-  navigation: {
-    nextEl: '.swiper-next',
-  },
 });
+
+function onNext() {
+  swiper.slideNext(350);
+}

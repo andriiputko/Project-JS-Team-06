@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 .darkmode .section-book-category {
-  background-color: var(--bcg-black);
+  background-color: var(--bcg-black-main);
 }
 .main-category-text {
   font-size: 32px;
@@ -20,7 +20,6 @@
   color: var(--brand-color-lilla);
 }
 
-// **BOOK INSIDES
 .book-category-lists {
   display: flex;
   flex-direction: column;
@@ -32,9 +31,7 @@
 
 .book-category-list {
   display: flex;
-}
-.book-category-list > .book-category-list-card:not(:first-child) {
-  display: none;
+  flex-wrap: wrap;
 }
 
 .book-category-list-category-text {
@@ -71,9 +68,8 @@
   font-weight: 400;
   line-height: 1.1;
 }
-// **
 
-//** Button
+
 .button-container {
   display: flex;
   justify-content: end;
@@ -93,6 +89,7 @@
   transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 }
 .darkmode .book-category-btn {
+  background-color: var(--bcg-black-main);
   color: var(--bcg-white);
 }
 .book-category-btn:hover,
@@ -101,9 +98,6 @@
   color: var(--bcg-white);
   background-color: var(--brand-color-lilla);
 }
-// **
-
-// **HOVER FOR CARD
 
 .book-category-hover-effect-container {
   cursor: pointer;
@@ -152,9 +146,6 @@
   .book-category-list {
     gap: 25px;
   }
-  .book-category-list > .book-category-list-card:nth-child(-n + 3) {
-    display: block;
-  }
   .book-category-list-img {
     width: 218px;
     height: 316px;
@@ -166,12 +157,10 @@
     width: 218px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .book-category-list {
     gap: 24px;
-  }
-  .book-category-list > .book-category-list-card:nth-child(-n + 5) {
-    display: block;
   }
   .book-category-list-img {
     width: 180px;

@@ -47,63 +47,129 @@ export const modalFunc = async () => {
   }
 
   const generateCardElement = book => {
-    return `<div class="modal-book">
-        <button class="modal-book-close" type="button" data-modal-book-close>
-          <svg class="modal-book-close-icon" width="24" height="24">
-            <use href="${sprite}#icon-close"></use>
-          </svg>
-        </button>
-        <img class="modal-book-img" src="${book.book_image}" alt="${book.title}" width="287" height="408" />
-        <h2 class="modal-book-name">${book.title}</h2>
-        <h3 class="modal-book-author">${book.author}</h3>
-        <p class="modal-description-book">${book.description}</p>
-        <ul class="trade-list">
-          <li class="trade-item">
-            <a href="#">
-              <img
-                srcset="${amazonImg} 1x, ${amazonImgRetina} 2x"
-                src="${amazonImg}"
-                alt="amazon"
-                width="62"
-                height="19"
-              />
-              <!-- <svg class="trade-icon" width="62" height="19">
-                <use href="./images/icons.svg#"></use>
-              </svg> -->
-            </a>
-          </li>
-          <li class="trade-item">
-            <a href="#">
-              <!-- <svg class="trade-icon" width="33" height="32"></svg> -->
-              <img
-                srcset="${bookImg} 1x, ${bookImgRetina} 2x"
-                src="${bookImg}"
-                alt="apple"
-                width="33"
-                height="32"
-              />
-            </a>
-          </li>
-          <li class="trade-item">
-            <a href="#">
-              <img
-                srcset="${shopImg} 1x, ${shopImgRetina} 2x"
-                src="${shopImg}"
-                alt="book" 
-                width="38" 
-                height="36" 
-              />
-              <!-- <svg class="trade-icon" width="38" height="36"></svg> -->
-            </a>
-          </li>
-        </ul>
-        <div class="btn-box">
-          <button class="btn-add-shopping-list" type="button" data-modal-add>
-            ADD TO SHOPPING LIST
-          </button>
-        </div>
-      </div>`;
-  };
+  const description = book.description.trim() !== '' ? book.description : "In a homage to Louisa May Alcott’s “Little Women,” a young man’s dark past resurfaces as he gets to the know the family of his college sweetheart.";
+
+  return `<div class="modal-book">
+    <button class="modal-book-close" type="button" data-modal-book-close>
+      <svg class="modal-book-close-icon" width="24" height="24">
+        <use href="${sprite}#icon-close"></use>
+      </svg>
+    </button>
+    <div class="modal-wrapper">
+    <img class="modal-book-img" src="${book.book_image}" alt="${book.title}" width="287" height="408" />
+    <div class="modal-wrapper-content">
+    <h2 class="modal-book-name">${book.title}</h2>
+    <h3 class="modal-book-author">${book.author}</h3>
+    <p class="modal-description-book">${description}</p>
+    <ul class="trade-list">
+      <li class="trade-item">
+        <a href="#">
+          <img 
+            class='trade-link-img amazon-img'
+            srcset="${amazonImg} 1x, ${amazonImgRetina} 2x"
+            src="${amazonImg}"
+            alt="amazon"
+            width="62"
+            height="19"
+          />
+        </a>
+      </li>
+      <li class="trade-item">
+        <a href="#">
+          <img
+            class='trade-link-img book-img'
+            srcset="${bookImg} 1x, ${bookImgRetina} 2x"
+            src="${bookImg}"
+            alt="apple"
+            width="33"
+            height="32"
+          />
+        </a>
+      </li>
+      <li class="trade-item">
+        <a href="#">
+          <img
+            class='trade-link-img shop-img'
+            srcset="${shopImg} 1x, ${shopImgRetina} 2x"
+            src="${shopImg}"
+            alt="book" 
+            width="38" 
+            height="36" 
+          />
+        </a>
+      </li>
+    </ul>
+    </div>
+    </div>
+    <div class="btn-box">
+      <button class="btn-add-shopping-list" type="button" data-modal-add>
+        ADD TO SHOPPING LIST
+      </button>
+    </div>
+  </div>`;
+};
+
+
+  // const generateCardElement = book => {
+  //   return `<div class="modal-book">
+  //       <button class="modal-book-close" type="button" data-modal-book-close>
+  //         <svg class="modal-book-close-icon" width="24" height="24">
+  //           <use href="${sprite}#icon-close"></use>
+  //         </svg>
+  //       </button>
+  //       <div class="modal-wrapper">
+  //       <img class="modal-book-img" src="${book.book_image}" alt="${book.title}" width="287" height="408" />
+  //       <div class="modal-wrapper-content">
+  //       <h2 class="modal-book-name">${book.title}</h2>
+  //       <h3 class="modal-book-author">${book.author}</h3>
+  //       <p class="modal-description-book">${book.description}</p>
+  //       <ul class="trade-list">
+  //         <li class="trade-item">
+  //           <a href="#">
+  //             <img 
+  //               class='trade-link-img amazon-img'
+  //               srcset="${amazonImg} 1x, ${amazonImgRetina} 2x"
+  //               src="${amazonImg}"
+  //               alt="amazon"
+  //               width="62"
+  //               height="19"
+  //             />
+  //           </a>
+  //         </li>
+  //         <li class="trade-item">
+  //           <a href="#">
+  //             <img
+  //               class='trade-link-img book-img'
+  //               srcset="${bookImg} 1x, ${bookImgRetina} 2x"
+  //               src="${bookImg}"
+  //               alt="apple"
+  //               width="33"
+  //               height="32"
+  //             />
+  //           </a>
+  //         </li>
+  //         <li class="trade-item">
+  //           <a href="#">
+  //             <img
+  //               class='trade-link-img shop-img'
+  //               srcset="${shopImg} 1x, ${shopImgRetina} 2x"
+  //               src="${shopImg}"
+  //               alt="book" 
+  //               width="38" 
+  //               height="36" 
+  //             />
+  //           </a>
+  //         </li>
+  //       </ul>
+  //       </div>
+  //       </div>
+  //       <div class="btn-box">
+  //         <button class="btn-add-shopping-list" type="button" data-modal-add>
+  //           ADD TO SHOPPING LIST
+  //         </button>
+  //       </div>
+  //     </div>`;
+  // };
 
   bookCategoryList.forEach(element => {
     element.addEventListener('click', handleImageClick);

@@ -6,6 +6,8 @@ import amazonImgRetina from './images/amazon-icon@2x.png';
 import bookImgRetina from './images/open-book-icon@2x.png';
 import shopImgRetina from './images/book-shop-icon@2x.png';
 
+import './js/fondsSlider'
+
 import sprite from './images/icons.svg';
 
 const shoppingListEl = document.querySelector('.shopping-list');
