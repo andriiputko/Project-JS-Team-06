@@ -72,5 +72,5 @@ scrollToTopButton.addEventListener(
 );
 
 updateScrollButtonVisibility();
-
-);
+  
+  }));
