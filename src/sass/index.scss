@@ -6,9 +6,15 @@
 @import './reset';
 @import './root';
 @import './layout/sidebar';
+
+
+@import './layout/modal';
+
+@import './layout/header';
 @import './layout/filter';
 
 @import './layout/scrollup';
 @import './layout/loader';
-// @import './layout/slider';
+@import './layout/slider';
+
 
