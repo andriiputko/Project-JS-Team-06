@@ -1,12 +1,15 @@
 import fonds from './fonds';
-// import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
+
+// import '.././node_modules/swiper/modules/swiper.min.css';
+// import '_../node_modules/swiper/modules/swiper.scss';
 
 // import 'swiper/swiper.min.css';
-// import 'swiper/swiper.scss';
+// import 'swiper/modules/navigation/navigation.min.css';
 
+// import '../../node_modules/swiper/swiper-bundle.min.css';
 
-
-const list = document.querySelector('.support-list');
+const list = document.querySelector('#support-list');
 
 const html = fonds.map(makeMarkup).join('');
 
