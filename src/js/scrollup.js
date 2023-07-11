@@ -1,4 +1,3 @@
-// Функция throttle
 function throttle(func, delay) {
   let timeoutId;
   let isThrottled = false;
@@ -15,7 +14,6 @@ function throttle(func, delay) {
   };
 }
 
-// Функция debounce
 function debounce(func, delay) {
   let timeoutId;
 
@@ -26,7 +24,6 @@ function debounce(func, delay) {
   };
 }
 
-// Код для прокрутки вверх
 function scrollToTop() {
   if (window.pageYOffset > 0) {
     window.scrollTo({
@@ -36,7 +33,6 @@ function scrollToTop() {
   }
 }
 
-// Функция обновления состояния кнопки "прокрутить вверх"
 function updateScrollButtonVisibility() {
   const scrollToTopButton = document.getElementById('scrollToTopButton');
   if (window.pageYOffset > 100) {
@@ -46,7 +42,6 @@ function updateScrollButtonVisibility() {
   }
 }
 
-// Обработчик события скролла с применением throttle
 window.addEventListener(
   'scroll',
   throttle(function () {
@@ -54,10 +49,8 @@ window.addEventListener(
   }, 200)
 );
 
-// Получаем ссылку на кнопку прокрутки вверх
 const scrollToTopButton = document.getElementById('scrollToTopButton');
 
-// Обработчик события клика с применением debounce
 scrollToTopButton.addEventListener(
   'click',
   debounce(function () {
@@ -65,5 +58,4 @@ scrollToTopButton.addEventListener(
   }, 300)
 );
 
-// Инициализация состояния кнопки при загрузке страницы
 updateScrollButtonVisibility();
