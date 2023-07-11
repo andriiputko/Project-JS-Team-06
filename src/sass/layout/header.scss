@@ -5,7 +5,9 @@
   border: 1.5px solid black;
   border-radius: 0 0 8px 8px;
 }
-
+.darkmode .header-section{
+  border-color: var(--bcg-white);
+}
 .header-nav {
   display: flex;
   justify-content: space-between;
@@ -27,7 +29,9 @@
   width: 77px;
   height: 13px;
 }
-
+.darkmode .header-logo-icon-name{
+  fill: var(--bcg-white);
+}
 .header-nav-list {
   display: none;
 }
@@ -267,6 +271,9 @@ input:checked[type='checkbox']:before {
     top: 50%;
     transform: translateY(-50%);
     margin-left: 8px;
+  }
+  .darkmode .header-logo-shop{
+    fill: var(--bcg-white);
   }
 
   .header-shop {
