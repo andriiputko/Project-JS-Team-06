@@ -1,4 +1,5 @@
 import booksAPI from './booksAPI.js';
+ 
 import { modalFunc } from './modal-open-close';
 
 const instanceBooksAPI = new booksAPI();
@@ -112,4 +113,4 @@ export async function showCards() {
   }
 }
 
-showCards();
+
