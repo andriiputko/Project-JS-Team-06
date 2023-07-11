@@ -53,7 +53,9 @@ export const modalFunc = async () => {
             <use href="${sprite}#icon-close"></use>
           </svg>
         </button>
+        <div class="modal-wrapper">
         <img class="modal-book-img" src="${book.book_image}" alt="${book.title}" width="287" height="408" />
+        <div class="modal-wrapper-content">
         <h2 class="modal-book-name">${book.title}</h2>
         <h3 class="modal-book-author">${book.author}</h3>
         <p class="modal-description-book">${book.description}</p>
@@ -97,6 +99,8 @@ export const modalFunc = async () => {
             </a>
           </li>
         </ul>
+        </div>
+        </div>
         <div class="btn-box">
           <button class="btn-add-shopping-list" type="button" data-modal-add>
             ADD TO SHOPPING LIST
