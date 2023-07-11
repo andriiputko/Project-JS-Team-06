@@ -9,7 +9,7 @@ import Swiper, { Navigation } from 'swiper';
 
 // import '../../node_modules/swiper/swiper-bundle.min.css';
 
-const list = document.querySelector('#support-list');
+const list = document.querySelector('.support-list');
 
 const html = fonds.map(makeMarkup).join('');
 
