@@ -1,51 +1,43 @@
 // ------------------HEADER-POSITION----------------
+.header-section {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border: 1.5px solid black;
+  border-radius: 0 0 8px 8px;
+}
 
 .header-nav {
-//   position: absolute;
   display: flex;
-//   justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
 }
 
-.header-logo-icon{
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-logo-icon {
   width: 24px;
   height: 24px;
 }
 
-.header-logo-shop {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 8px;
+.header-logo-icon-name {
+  width: 77px;
+  height: 13px;
 }
 
 .header-nav-list {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28;
-
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding: 19px 0 19px;
-}
-
-.header-shop {
-  position: relative;
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 // ---------------CHECKBOX-----------------
 
 .header-checkbox {
-    margin-left: 125px;
-//   position: absolute;
-//   top: 50%;
-//   left: 208px;
-//   transform: translateY(-50%);
+  padding-left: 144px;
+  display: flex;
+  text-align: center;
 }
 
 input[type='checkbox'] {
@@ -89,5 +81,249 @@ input:checked[type='checkbox']:before {
   height: 28px;
   cursor: pointer;
   stroke: black;
-//   margin-left: 14px;
+}
+
+.header-open-menu-icon:hover {
+  stroke: #4f2ee8;
+}
+
+.header-mobile-menu-open {
+  background: transparent;
+  border: none;
+}
+
+/* ------------BACKDROP------- */
+
+.backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+
+  transition: opacity, visibility, transform;
+  transition-timing-function: cubic-bezier(0.2, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.5);
+}
+
+// ----------------MODAL------------------
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+}
+
+.modal-close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 28px;
+  height: 28px;
+  border: #0000001a;
+  border-radius: 50%;
+  padding: 0;
+
+  background-color: transparent;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  fill: #4f2ee8;
+}
+
+.close-btn {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  stroke: black;
+}
+
+.header-section-modal {
+  background-color: #ffffff;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border: 1.5px solid black;
+  border-radius: 0 0 8px 8px;
+}
+
+.header-nav-list-modal {
+  margin-left: 40px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+
+  margin-top: 183px;
+  margin-left: 128px;
+}
+
+.header-home-active-modal {
+  border-radius: 36px;
+  padding: 8px 16px;
+  background-color: #eac645;
+}
+
+.header-shop-modal {
+  width: 156px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-shop-modal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+.header-button-sign-up-modal {
+  position: relative;
+  border-radius: 18px;
+  border: 1.5px solid black;
+  cursor: pointer;
+  color: white;
+  background-color: #4f2ee8;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28;
+
+  padding: 14px;
+
+  width: 184px;
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 227px;
+  margin-left: 20px;
+}
+
+.header-button-icon-sign-up-modal {
+  width: 20px;
+  height: 20px;
+}
+
+// ----------------BUTTON_SIGN-UP--------------
+
+.header-button-sign-up {
+  display: none;
+}
+
+// ---------------MEDIA----------------
+@media screen and (min-width: 768px) {
+  .header-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .header-nav {
+    display: flex;
+    justify-content: unset;
+  }
+
+  .header-nav-list {
+    margin-left: 40px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 19px 0 19px;
+  }
+
+  .header-open-menu-icon {
+    display: none;
+  }
+
+  .header-logo-shop {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+  }
+
+  .header-shop {
+    width: 156px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-home-active {
+    border-radius: 36px;
+    padding: 8px 16px;
+    background-color: #eac645;
+  }
+
+  .header-checkbox {
+    padding-left: 0;
+    display: flex;
+    text-align: center;
+
+    margin-left: 101px;
+  }
+
+  // ----------------BUTTON_LOG-OUT--------------
+
+  .header-button-sign-up {
+    position: relative;
+    border-radius: 18px;
+    border: 1.5px solid black;
+    cursor: pointer;
+    color: white;
+    background-color: #4f2ee8;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28;
+
+    padding: 14px;
+
+    width: 184px;
+    display: flex;
+    justify-content: space-between;
+
+    margin-left: 24px;
+  }
+
+  .header-button-icon-sign-up {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header-nav-list {
+    margin-left: 76px;
+  }
+
+  .header-checkbox {
+    margin-left: auto;
+  }
 }
