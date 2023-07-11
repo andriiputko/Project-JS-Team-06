@@ -17,7 +17,7 @@ function generateBookListHTML(bookList) {
               <p class="book-category-hover-effect">QUICK VIEW</p>
             </div>
           </a>
-          <h3 class="book-category-list-category-book-name">${book.title}</h3>
+          <h2 class="book-category-list-category-book-name">${book.title}</h2>
           <p class="book-category-list-book-author">${book.author}</p>
         </li>
       `
