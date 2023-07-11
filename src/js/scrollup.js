@@ -1,12 +1,3 @@
- window.addEventListener('scroll', function() {
-  const button = document.getElementById('scrollToTopButton');
-  if (window.pageYOffset > 100) {
-    button.style.display = 'block';
-  } else {
-    button.style.display = 'none';
-  }
-});
-
 function scrollToTop() {
   const currentPosition = window.pageYOffset;
   if (currentPosition > 0) {
@@ -16,3 +7,15 @@ function scrollToTop() {
     });
   }
 }
+
+window.addEventListener('scroll', function() {
+  const scrollToTopButton = document.getElementById('scrollToTopButton');
+  if (window.pageYOffset > 100) {
+    scrollToTopButton.style.display = 'block';
+  } else {
+    scrollToTopButton.style.display = 'none';
+  }
+});
+
+const scrollToTopButton = document.getElementById('scrollToTopButton');
+scrollToTopButton.addEventListener('click', scrollToTop);

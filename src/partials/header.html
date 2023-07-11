@@ -1,5 +1,102 @@
-<header>
-    <div class="container">
-        <a href="./shopping-list.html">Shopping list</a>
+<section class="header-section">
+  <div class="container">
+    <nav class="header-nav">
+      <a
+        href="https://andriiputko.github.io/Project-JS-Team-06/"
+        class="header-logo"
+      >
+        <svg class="header-logo-icon">
+          <use href="./images/icons.svg#icon-logo"></use>
+        </svg>
+        <svg class="header-logo-icon-name">
+          <use href="./images/icons.svg#icon-bookshelf"></use>
+        </svg>
+      </a>
+
+      <ul class="header-nav-list">
+        <li class="header-home-active">
+          <a href="https://andriiputko.github.io/Project-JS-Team-06/">HOME</a>
+        </li>
+        <li class="header-shop">
+          <a href="./shopping-list.html">
+            SHOPPING LIST
+            <svg class="header-logo-shop">
+              <use href="./images/icons.svg#icon-cart"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="header-checkbox" id="dark-mode-toggle">
+        <input type="checkbox" />
+      </div>
+      <button
+        type="button"
+        class="header-mobile-menu-open"
+        header-data-modal-open
+      >
+        <svg class="header-open-menu-icon">
+          <use href="./images/icons.svg#icon-burger"></use>
+        </svg>
+      </button>
+      <button type="button" class="header-button-sign-up">
+        Sign up
+        <svg class="header-button-icon-sign-up">
+          <use href="./images/icons.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <div class="backdrop is-hidden" header-data-modal>
+    <div class="modal">
+      <section class="header-section-modal">
+        <div class="container">
+          <nav class="header-nav">
+            <a
+              href="https://andriiputko.github.io/Project-JS-Team-06/"
+              class="header-logo"
+            >
+              <svg class="header-logo-icon">
+                <use href="./images/icons.svg#icon-logo"></use>
+              </svg>
+              <svg class="header-logo-icon-name">
+                <use href="./images/icons.svg#icon-bookshelf"></use>
+              </svg>
+            </a>
+            <div class="header-checkbox" id="dark-mode-toggle">
+              <input type="checkbox" />
+            </div>
+            <button
+              type="button"
+              class="modal-close-btn"
+              header-data-modal-close
+            >
+              <svg class="close-btn">
+                <use href="./images/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+          </nav>
+        </div>
+      </section>
+      <ul class="header-nav-list-modal">
+        <li class="header-home-active-modal">
+          <a href="https://andriiputko.github.io/Project-JS-Team-06/">HOME</a>
+        </li>
+        <li class="header-shop-modal">
+          <a href="./shopping-list.html">
+            SHOPPING LIST
+            <svg class="header-logo-shop-modal">
+              <use href="./images/icons.svg#icon-cart"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <button type="button" class="header-button-sign-up-modal">
+        Sign up
+        <svg class="header-button-icon-sign-up-modal">
+          <use href="./images/icons.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
     </div>
-</header>
+  </div>
+</section>
