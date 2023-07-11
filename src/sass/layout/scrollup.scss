@@ -1,17 +1,12 @@
- .scrollToTopButton {
-  display: none;
+.scrollToTopButton {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 99;
-  width: 40px;
-  height: 40px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
   cursor: pointer;
-  font-size: 16px;
   transition: opacity 0.3s ease-in-out;
 }
 
