@@ -7,5 +7,5 @@ import { scrollup } from './js/scrollup';
 import { initLoader } from './js/loader';
 
 import './js/themeDark';
-
+import './js/fondsSlider';
 import './js/header.js';
