@@ -22,11 +22,14 @@ const markUp = fonds
     const imgfinded = findImage(title, fonds );
     const img = imgfinded.img;    
 
-    return `<div class="support-item swiper-slide">
+    return `<li class="support-item swiper-slide">
   <a href="${url}" class="support-link" aria-label="${title}" target="_blank" rel="noopener norefferer nofollow">
   <p class="support-number">${number}</p>
-  <img class="support-img" src="${img}" data-source="${url}" alt="${title}"/>
-  </a></div>`;
+  <img class="support-img"
+    srcset="${img.normal} 1x, ${img.retina} 2x"
+    src="${img.normal}" type="image/png" alt="${title}">
+  
+  </a></li>`;
   })
   .join('');
 
