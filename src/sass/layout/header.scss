@@ -75,7 +75,7 @@ input[type='checkbox']::before {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-input:checked[type='checkbox']:before {
+input:checked[type='checkbox']::before {
   transform: translateX(20px);
 }
 
