@@ -6,6 +6,8 @@ import amazonImgRetina from '../images/amazon-icon@2x.png';
 import bookImgRetina from '../images/open-book-icon@2x.png';
 import shopImgRetina from '../images/book-shop-icon@2x.png';
 import sprite from '../images/icons.svg';
+import Notiflix from 'notiflix';
+
 
 export const modalFunc = async () => {
   const bookCategoryList = document.querySelectorAll('.book-category-list');
@@ -82,7 +84,7 @@ export const modalFunc = async () => {
           <p class="modal-description-book">${description}</p>
           <ul class="trade-list">
             <li class="trade-item">
-              <a href="#">
+              <a href='${book.buy_links[0].url}' target='_blank'>
                 <img 
                   class='trade-link-img amazon-img'
                   srcset="${amazonImg} 1x, ${amazonImgRetina} 2x"
@@ -94,7 +96,7 @@ export const modalFunc = async () => {
               </a>
             </li>
             <li class="trade-item">
-              <a href="#">
+              <a href='${book.buy_links[1].url}' target='_blank'>
                 <img
                   class='trade-link-img book-img'
                   srcset="${bookImg} 1x, ${bookImgRetina} 2x"
@@ -106,7 +108,7 @@ export const modalFunc = async () => {
               </a>
             </li>
             <li class="trade-item">
-              <a href="#">
+              <a href='${book.buy_links[4].url}' target='_blank'>
                 <img
                   class='trade-link-img shop-img'
                   srcset="${shopImg} 1x, ${shopImgRetina} 2x"
@@ -128,28 +130,55 @@ export const modalFunc = async () => {
     </div>`;
   };
 
+
+
   const handleAddToShoppingList = event => {
-    const button = event.target;
-    console.log(event.target);
-    console.log(book);
-    // debugger;
+  const button = event.target;
+  console.log(event.target);
+  console.log(book);
+  // debugger;
 
-    if (button.textContent === 'ADD TO SHOPPING LIST') {
-      const result = addToShoppingList(book);
+  if (button.textContent === 'ADD TO SHOPPING LIST') {
+    const result = addToShoppingList(book);
 
-      if (!result) {
-        return;
-      }
-
-      button.textContent = 'REMOVE FROM SHOPPING LIST';
-      showConfirmationMessage();
-    } else {
-      // debugger;
-      removeFromShoppingList(book);
-      button.textContent = 'ADD TO SHOPPING LIST';
-      removeConfirmationMessage();
+    if (!result) {
+      // Книга вже існує, вивести повідомлення
+      Notiflix.Notify.failure('This book is already on the shopping list.');
+      return;
     }
-  };
+
+    button.textContent = 'REMOVE FROM SHOPPING LIST';
+    showConfirmationMessage();
+  } else {
+    removeFromShoppingList(book);
+    button.textContent = 'ADD TO SHOPPING LIST';
+    removeConfirmationMessage();
+  }
+};
+
+
+  // const handleAddToShoppingList = event => {
+  //   const button = event.target;
+  //   console.log(event.target);
+  //   console.log(book);
+  //   // debugger;
+
+  //   if (button.textContent === 'ADD TO SHOPPING LIST') {
+  //     const result = addToShoppingList(book);
+
+  //     if (!result) {
+  //       return;
+  //     }
+
+  //     button.textContent = 'REMOVE FROM SHOPPING LIST';
+  //     showConfirmationMessage();
+  //   } else {
+      
+  //     removeFromShoppingList(book);
+  //     button.textContent = 'ADD TO SHOPPING LIST';
+  //     removeConfirmationMessage();
+  //   }
+  // };
 
   function addToShoppingList(book) {
     const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
@@ -171,12 +200,6 @@ export const modalFunc = async () => {
   function removeFromShoppingList(book) {
     const shoppingList = JSON.parse(localStorage.getItem('shoppingList'));
 
-    // const index = shoppingList.indexOf(book);
-    // if (index > -1) {
-    //   shoppingList.splice(index, 1);
-    // }
-
-    // debugger;
     shoppingList.forEach((el, index) => {
       if (el._id === book._id) {
         shoppingList.splice(index, 1);
