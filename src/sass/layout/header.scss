@@ -5,9 +5,11 @@
   border: 1.6px solid var(--bcg-black);
   border-radius: 0 0 8px 8px;
 }
+
 .darkmode .header-section {
   border-color: var(--bcg-white);
 }
+
 .header-nav {
   display: flex;
   justify-content: space-between;
@@ -190,17 +192,17 @@ input:checked[type='checkbox']::before {
   margin-left: 128px;
 }
 
-.header-home-active-modal {
-  border-radius: 36px;
-  padding: 8px 16px;
-  background-color: var(--brand-color-yellow);
-}
-
 .header-shop-modal {
   width: 156px;
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.header-active-modal {
+  border-radius: 36px;
+  padding: 8px 16px;
+  background-color: var(--brand-color-yellow);
 }
 
 .header-logo-shop-modal {
@@ -210,6 +212,7 @@ input:checked[type='checkbox']::before {
   top: 50%;
   transform: translateY(-50%);
   margin-left: 8px;
+  fill: currentColor;
 }
 
 .header-button-sign-up-modal {

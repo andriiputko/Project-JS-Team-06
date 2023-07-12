@@ -6,8 +6,7 @@ import amazonImgRetina from '../images/amazon-icon@2x.png';
 import bookImgRetina from '../images/open-book-icon@2x.png';
 import shopImgRetina from '../images/book-shop-icon@2x.png';
 import sprite from '../images/icons.svg';
-import Notiflix from 'notiflix';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const modalFunc = async () => {
   const bookCategoryList = document.querySelectorAll('.book-category-list');
@@ -130,32 +129,29 @@ export const modalFunc = async () => {
     </div>`;
   };
 
-
-
   const handleAddToShoppingList = event => {
-  const button = event.target;
-  console.log(event.target);
-  console.log(book);
-  // debugger;
+    const button = event.target;
+    console.log(event.target);
+    console.log(book);
+    // debugger;
 
-  if (button.textContent === 'ADD TO SHOPPING LIST') {
-    const result = addToShoppingList(book);
+    if (button.textContent === 'ADD TO SHOPPING LIST') {
+      const result = addToShoppingList(book);
 
-    if (!result) {
-      // Книга вже існує, вивести повідомлення
-      Notiflix.Notify.failure('This book is already on the shopping list.');
-      return;
+      if (!result) {
+        // Книга вже існує, вивести повідомлення
+        Notify.warning('This book is already in the shopping list.');
+        return;
+      }
+
+      button.textContent = 'REMOVE FROM SHOPPING LIST';
+      showConfirmationMessage();
+    } else {
+      removeFromShoppingList(book);
+      button.textContent = 'ADD TO SHOPPING LIST';
+      removeConfirmationMessage();
     }
-
-    button.textContent = 'REMOVE FROM SHOPPING LIST';
-    showConfirmationMessage();
-  } else {
-    removeFromShoppingList(book);
-    button.textContent = 'ADD TO SHOPPING LIST';
-    removeConfirmationMessage();
-  }
-};
-
+  };
 
   // const handleAddToShoppingList = event => {
   //   const button = event.target;
@@ -173,7 +169,7 @@ export const modalFunc = async () => {
   //     button.textContent = 'REMOVE FROM SHOPPING LIST';
   //     showConfirmationMessage();
   //   } else {
-      
+
   //     removeFromShoppingList(book);
   //     button.textContent = 'ADD TO SHOPPING LIST';
   //     removeConfirmationMessage();
