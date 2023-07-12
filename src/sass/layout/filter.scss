@@ -5,13 +5,6 @@
   scroll-behavior: smooth;
 }
 
-@media screen and (min-width: 768px) {
-  .filter-section {
-    width: 309px;
-    height: 472px;
-  }
-}
-
 .filter-container {
   display: flex;
   flex-wrap: wrap;
@@ -54,7 +47,6 @@
 .active-filter {
   color: var(--brand-color-lilla);
   font-weight: 700;
-  line-height: 24px;
   text-transform: uppercase;
   transition: color 250ms ease-in-out;
 }
@@ -78,28 +70,30 @@
   color: var(--bcg-black);
   white-space: nowrap;
   cursor: pointer;
-  text-transform: none;
+  padding: 14px 0;
+  transition: color 250ms ease-in-out;
 }
-@media screen and (min-width: 768px) {
-  .category-filter-link {
-    font-size: 14px;
-  }
-}
+
 .category-filter-link:hover,
-.category-filter-link.active,
-.category-filter-link:focus {
+.category-filter-link:active,
+.category-filter-link:focus,
+.filter-link:hover,
+.filter-link:active,
+.filter-link:focus {
   color: var(--brand-color-lilla);
-  font-size: 14px;
   font-weight: 700;
-  line-height: 24px;
   text-transform: uppercase;
-  transition: text-transform 250ms ease-in-out;
 }
+
 .darkmode .category-filter-link:hover,
-.darkmode .category-filter-link.active,
-.darkmode .category-filter-link:focus {
+.darkmode .category-filter-link:active,
+.darkmode .category-filter-link:focus,
+.darkmode .filter-link:hover,
+.darkmode .filter-link:active,
+.darkmode .filter-link:focus {
   color: var(--brand-color-yellow);
 }
+
 .darkmode .category-filter-link {
   color: var(--bcg-white);
 }
@@ -118,6 +112,8 @@
   .filter-section {
     max-width: 356px;
     max-height: 472px;
+    width: 100%;
+    height: 100%;
   }
 }
 @media screen and (min-width: 1440px) {
