@@ -74,13 +74,16 @@ async function displayBooksByCategory(category) {
 
 function handleCategoryClick(event) {
   event.preventDefault();
-  filterLink.classList.remove('active-filter');
+  if (filterLink.classList.contains('active-filter')) {
+    filterLink.classList.remove('active-filter');
+  }
+
   const selectedCategory = event.target.textContent;
-  const mainCategoryText = document.querySelector('.main-category-text');
 
   mainCategoryText.textContent = selectedCategory;
   displayBooksByCategory(selectedCategory);
 
+  const categoryLinks = document.querySelectorAll('.category-filter-link');
   categoryLinks.forEach(link => {
     link.classList.remove('active-filter');
   });
@@ -96,10 +99,20 @@ function updateCategoryClickEventListeners() {
 }
 
 filterLink.addEventListener('click', async () => {
+  if (filterLink.classList.contains('active-filter')) {
+    return;
+  }
+  const categoryLinks = document.querySelectorAll('.category-filter-link');
+  categoryLinks.forEach(link => {
+    link.classList.remove('active-filter');
+  });
+
   filterLink.classList.add('active-filter');
+
   try {
     showLoader();
-    mainCategoryText.innerHTML = `Best Sellers <span class="main-category-secondary-text">Books</span>`;
+    mainCategoryText.innerHTML =
+      'Best Sellers <span class="main-category-secondary-text">Books</span>';
     const data = await categoryInstance.fetchBooks();
     booksContainer.innerHTML = '';
     const markup = await generateBookCategoryElements(data);

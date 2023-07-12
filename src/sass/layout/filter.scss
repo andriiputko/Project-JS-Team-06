@@ -46,15 +46,6 @@
   color: var(--bcg-black);
 }
 
-.active-filter {
-  color: var(--brand-color-lilla);
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: color 250ms ease-in-out;
-}
-.darkmode .active-filter {
-  color: var(--brand-color-yellow);
-}
 .darkmode .filter-title-text {
   color: var(--bcg-white);
 }
@@ -126,4 +117,14 @@
   .filter-section {
     max-width: 356px;
   }
+}
+.active-filter {
+  color: var(--brand-color-lilla);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 250ms ease-in-out;
+}
+.darkmode .active-filter {
+  color: var(--brand-color-yellow);
+  transition: color 250ms ease-in-out;
 }
