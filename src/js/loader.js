@@ -1,20 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const loader = document.querySelector('.loader-offline');
-  const content = document.querySelector('.content');
+var headerElement = document.querySelector('header');
+var mainElement = document.querySelector('main');
+var loaderElement = document.querySelector('.loader');
 
-  // function showLoader() {
-  //   content.style.display = 'none';
-  //   loader.style.display = 'block';
-  // }
+headerElement.style.display = 'none';
+mainElement.style.display = 'none';
 
-  // function showContent() {
-  //   content.style.display = 'block';
-  //   loader.style.display = 'none';
-  // }
+const showLoader = () => {
+  loaderElement.style.display = 'block';
 
-  // showLoader();
+  headerElement.style.display = 'none';
+  mainElement.style.display = 'none';
+};
 
-  // setTimeout(function() {
-  //   showContent();
-  // }, 5000);
-});
+
+
+const hideLoader = () => {
+  loaderElement.style.display = 'none';
+  headerElement.style.display = 'block';
+  mainElement.style.display = 'block';
+};
+
+
+
+export { showLoader, hideLoader };

@@ -1,13 +1,13 @@
 import booksAPI from './booksAPI.js';
 import { modalFunc } from './modal-open-close';
 import { generateBookCategoryElements, showCards } from './booksCards.js';
-
+import { hideLoader, showLoader } from './loader.js';
 const categoryInstance = new booksAPI();
 const instanceTopBooksAPI = new booksAPI();
 const listCategoryBooks = document.querySelector('.filter-list');
 const booksContainer = document.querySelector('.book-category-lists');
 const filterLink = document.querySelector('.filter-link');
-
+const mainCategoryText = document.querySelector('.main-category-text');
 async function createBooksCategory(categories) {
   categories.sort((a, b) => {
 
@@ -49,6 +49,7 @@ async function showList() {
 
 async function displayBooksByCategory(category) {
   try {
+    showLoader();
     const url = `https://books-backend.p.goit.global/books/category?category=${category}`;
     const response = await fetch(url);
     const books = await response.json();
@@ -79,6 +80,7 @@ async function displayBooksByCategory(category) {
     booksContainer.appendChild(categoryWrapper);
 
     modalFunc();
+    hideLoader();
   } catch (error) {
     console.error('Error:', error);
   }
@@ -86,13 +88,18 @@ async function displayBooksByCategory(category) {
 
 function handleCategoryClick(event) {
   event.preventDefault();
-
+  filterLink.classList.remove('active-filter');
   const selectedCategory = event.target.textContent;
   const mainCategoryText = document.querySelector('.main-category-text');
 
   mainCategoryText.textContent = selectedCategory;
   displayBooksByCategory(selectedCategory);
-  filterLink.classList.remove('active-filter');
+
+  categoryLinks.forEach(link => {
+    link.classList.remove('active-filter');
+  });
+
+  event.target.classList.add('active-filter');
 }
 
 function updateCategoryClickEventListeners() {
@@ -102,8 +109,20 @@ function updateCategoryClickEventListeners() {
   });
 }
 
-filterLink.addEventListener('click', () => {
+filterLink.addEventListener('click', async () => {
   filterLink.classList.add('active-filter');
+  try {
+    showLoader();
+    mainCategoryText.innerHTML = `Best Sellers <span class="main-category-secondary-text">Books</span>`;
+    const data = await categoryInstance.fetchBooks();
+    booksContainer.innerHTML = '';
+    const markup = await generateBookCategoryElements(data);
+    booksContainer.append(...markup);
+    modalFunc();
+    hideLoader();
+  } catch (error) {
+    console.error('Error:', error);
+  }
 });
 
 async function initializePage() {

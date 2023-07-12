@@ -2,7 +2,7 @@
 .header-section {
   padding-top: 18px;
   padding-bottom: 18px;
-  border: 1.6px solid black;
+  border: 1.6px solid var(--bcg-black);
   border-radius: 0 0 8px 8px;
 }
 .darkmode .header-section {
@@ -70,7 +70,7 @@ input[type='checkbox']::before {
   border-radius: 20px;
   top: 2px;
   left: 2px;
-  background-color: #ffffff;
+  background-color: var(--bcg-white);
   transition: 0.5s;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -85,11 +85,15 @@ input:checked[type='checkbox']::before {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  stroke: black;
+  stroke: var(--bcg-black);
+}
+
+.darkmode .header-open-menu-icon {
+  stroke: var(--bcg-white);
 }
 
 .header-open-menu-icon:hover {
-  stroke: #4f2ee8;
+  stroke: var(--brand-color-lilla);
 }
 
 .header-mobile-menu-open {
@@ -151,21 +155,21 @@ input:checked[type='checkbox']::before {
 
 .modal-close-btn:hover,
 .modal-close-btn:focus {
-  fill: #4f2ee8;
+  fill: var(--brand-color-lilla);
 }
 
 .close-btn {
   width: 28px;
   height: 28px;
   cursor: pointer;
-  stroke: black;
+  stroke: var(--bcg-black);
 }
 
 .header-section-modal {
-  background-color: #ffffff;
+  background-color: var(--bcg-white);
   padding-top: 18px;
   padding-bottom: 18px;
-  border: 1.5px solid black;
+  border: 1.5px solid var(--bcg-black);
   border-radius: 0 0 8px 8px;
 }
 
@@ -188,7 +192,7 @@ input:checked[type='checkbox']::before {
 .header-home-active-modal {
   border-radius: 36px;
   padding: 8px 16px;
-  background-color: #eac645;
+  background-color: var(--brand-color-yellow);
 }
 
 .header-shop-modal {
@@ -213,10 +217,10 @@ input:checked[type='checkbox']::before {
   bottom: 20px;
 
   border-radius: 18px;
-  border: 1.5px solid black;
+  border: 1.5px solid var(--bcg-black);
   cursor: pointer;
-  color: black;
-  background-color: white;
+  color: var(--bcg-black);
+  background-color: var(--bcg-white);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;
@@ -278,22 +282,20 @@ input:checked[type='checkbox']::before {
     height: 20px;
   }
 
-  .darkmode .header-logo-shop {
-    fill: var(--bcg-white);
-  }
-
   .header-shop {
     display: flex;
     align-items: center;
     gap: 8px;
+    fill: currentColor;
   }
 
   .header-tab-active {
     font-weight: 700;
     border-radius: 36px;
     padding: 7px 16px;
-    background-color: #eac645;
+    background-color: var(--brand-color-yellow);
     height: 34px;
+    color: var(--bcg-black);
   }
 
   .header-checkbox {
@@ -311,10 +313,10 @@ input:checked[type='checkbox']::before {
   .header-button-sign-up {
     position: relative;
     border-radius: 18px;
-    border: 1.5px solid black;
+    border: 1.5px solid var(--bcg-black);
     cursor: pointer;
-    color: white;
-    background-color: #4f2ee8;
+    color: var(--bcg-white);
+    background-color: var(--brand-color-lilla);
     font-weight: 500;
     font-size: 14px;
     line-height: 1.28;

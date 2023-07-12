@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="header-nav">
-    <a href="./index.html" class="header-logo">
+    <a aria-label="Go to main page" href="./index.html" class="header-logo">
       <svg class="header-logo-icon">
         <use href="./images/icons.svg#icon-logo"></use>
       </svg>
@@ -11,10 +11,14 @@
 
     <ul class="header-nav-list">
       <li class="header-tab-active">
-        <a href="./index.html">HOME</a>
+        <a aria-label="Go to main page" href="./index.html">HOME</a>
       </li>
       <li>
-        <a class="header-shop" href="./shopping-list.html">
+        <a
+          aria-label="Go to shopping list"
+          class="header-shop"
+          href="./shopping-list.html"
+        >
           SHOPPING LIST
           <svg class="header-logo-shop">
             <use href="./images/icons.svg#icon-cart"></use>
@@ -22,19 +26,26 @@
         </a>
       </li>
     </ul>
-    <div class="header-checkbox" id="dark-mode-toggle">
-      <input type="checkbox" />
-    </div>
+    <form class="header-checkbox" id="dark-mode-toggle">
+      <input id="theme-switcher" type="checkbox" />
+      <label for="theme-switcher"></label>
+    </form>
     <button
       type="button"
       class="header-mobile-menu-open"
+      aria-label="Open mobile menu"
       header-data-modal-open
     >
       <svg class="header-open-menu-icon">
         <use href="./images/icons.svg#icon-burger"></use>
       </svg>
     </button>
-    <button type="button" class="header-button-sign-up">
+    <button
+      type="button"
+      class="header-button-sign-up"
+      aria-label="Registration on the site"
+      id="signUp-open-btn"
+    >
       Sign up
       <svg class="header-button-icon-sign-up">
         <use href="./images/icons.svg#icon-arrow-right"></use>
@@ -49,7 +60,8 @@
       <div class="container">
         <nav class="header-nav">
           <a
-            href="https://andriiputko.github.io/Project-JS-Team-06/"
+            aria-label="Go to main page"
+            href="./index.html"
             class="header-logo"
           >
             <svg class="header-logo-icon">
@@ -59,10 +71,16 @@
               <use href="./images/icons.svg#icon-bookshelf"></use>
             </svg>
           </a>
-          <div class="header-checkbox" id="dark-mode-toggle">
-            <input type="checkbox" />
-          </div>
-          <button type="button" class="modal-close-btn" header-data-modal-close>
+          <form class="header-checkbox" id="dark-mode-toggle">
+            <input id="theme-switcher" type="checkbox" />
+            <label for="theme-switcher"></label>
+          </form>
+          <button
+            type="button"
+            class="modal-close-btn"
+            header-data-modal-close
+            aria-label="Close mobile menu"
+          >
             <svg class="close-btn">
               <use href="./images/icons.svg#icon-close"></use>
             </svg>
@@ -72,10 +90,10 @@
     </section>
     <ul class="header-nav-list-modal">
       <li class="header-home-active-modal">
-        <a href="https://andriiputko.github.io/Project-JS-Team-06/">HOME</a>
+        <a aria-label="Go to main page" href="./index.html">HOME</a>
       </li>
       <li class="header-shop-modal">
-        <a href="./shopping-list.html">
+        <a aria-label="Go to shopping list" href="./shopping-list.html">
           SHOPPING LIST
           <svg class="header-logo-shop-modal">
             <use href="./images/icons.svg#icon-cart"></use>
@@ -83,7 +101,12 @@
         </a>
       </li>
     </ul>
-    <button type="button" class="header-button-sign-up-modal">
+    <button
+      type="button"
+      class="header-button-sign-up-modal"
+      aria-label="Registration on the site"
+      id="signUp-open-btn"
+    >
       Sign up
       <svg class="header-button-icon-sign-up-modal">
         <use href="./images/icons.svg#icon-arrow-right"></use>
