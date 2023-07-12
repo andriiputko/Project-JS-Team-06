@@ -3,19 +3,20 @@
   display: flex;
   flex-direction: column;
 }
-.darkmode .section-book-category {
-  background-color: var(--bcg-black-main);
-}
+
 .main-category-text {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.6;
   color: var(--bcg-black);
   margin-bottom: 40px;
+  transition: color 0.25s;
 }
+
 .darkmode .main-category-text {
   color: var(--bcg-white);
 }
+
 .main-category-secondary-text {
   color: var(--brand-color-lilla);
 }
@@ -57,10 +58,13 @@
   line-height: 1.1;
   text-transform: uppercase;
   margin-bottom: 4px;
+  transition: color 0.25s;
 }
+
 .darkmode .book-category-list-category-book-name {
   color: var(--bcg-white);
 }
+
 .book-category-list-book-author {
   color: var(--color-gray);
   font-size: 12px;

@@ -29,6 +29,7 @@
 .header-logo-icon-name {
   width: 77px;
   height: 13px;
+  transition: fill 0.25s;
 }
 .darkmode .header-logo-icon-name {
   fill: var(--bcg-white);
