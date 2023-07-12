@@ -1,6 +1,8 @@
 .filter-section {
   max-width: 335px;
   max-height: 228px;
+  width: 100%;
+  height: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -44,15 +46,6 @@
   color: var(--bcg-black);
 }
 
-.active-filter {
-  color: var(--brand-color-lilla);
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: color 250ms ease-in-out;
-}
-.darkmode .active-filter {
-  color: var(--brand-color-yellow);
-}
 .darkmode .filter-title-text {
   color: var(--bcg-white);
 }
@@ -110,10 +103,8 @@
     line-height: 1.3;
   }
   .filter-section {
-    max-width: 356px;
+    max-width: 337px;
     max-height: 472px;
-    width: 100%;
-    height: 100%;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -123,4 +114,17 @@
   .category-filter-link {
     font-size: 16px;
   }
+  .filter-section {
+    max-width: 356px;
+  }
+}
+.active-filter {
+  color: var(--brand-color-lilla);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 250ms ease-in-out;
+}
+.darkmode .active-filter {
+  color: var(--brand-color-yellow);
+  transition: color 250ms ease-in-out;
 }

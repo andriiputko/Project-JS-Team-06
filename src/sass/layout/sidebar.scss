@@ -1,7 +1,6 @@
 .side-bar {
   display: flex;
   flex-direction: column;
-  max-width: 335px;
   gap: 40px;
   padding-top: 40px;
 }
@@ -10,7 +9,6 @@
   .side-bar {
     max-width: 735px;
     align-items: center;
-    // gap: 32px;
     flex-direction: row;
   }
 }
