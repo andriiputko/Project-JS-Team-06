@@ -34,7 +34,7 @@
       type="button"
       class="header-mobile-menu-open"
       aria-label="Open mobile menu"
-      header-data-modal-open
+      id="header-data-modal-open"
     >
       <svg class="header-open-menu-icon">
         <use href="./images/icons.svg#icon-burger"></use>
@@ -53,7 +53,7 @@
   </nav>
 </div>
 
-<div class="backdrop is-hidden" header-data-modal>
+<div class="backdrop is-hidden" id="header-data-modal">
   <div class="modal">
     <section class="header-section-modal">
       <div class="container">
@@ -71,13 +71,13 @@
             </svg>
           </a>
           <form class="header-checkbox" id="dark-mode-toggle">
-            <input id="theme-switcher" type="checkbox" />
-            <label for="theme-switcher"></label>
+            <input id="theme-switcher-in-modal" type="checkbox" />
+            <label for="theme-switcher-in-modal"></label>
           </form>
           <button
             type="button"
             class="modal-close-btn"
-            header-data-modal-close
+            id="header-data-modal-close"
             aria-label="Close mobile menu"
           >
             <svg class="close-btn">
