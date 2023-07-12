@@ -4,10 +4,17 @@
   padding-bottom: 18px;
   border: 1.6px solid var(--bcg-black);
   border-radius: 0 0 8px 8px;
+
+  position: relative;
+  z-index: 999;
+  background-color: var(--bcg-white);
+
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
 .darkmode .header-section {
   border-color: var(--bcg-white);
+  background-color: var(--bcg-black);
 }
 
 .header-nav {
@@ -143,10 +150,6 @@ input:checked[type='checkbox']::before {
 }
 
 .modal-close-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   width: 28px;
   height: 28px;
   border: #0000001a;
@@ -168,16 +171,14 @@ input:checked[type='checkbox']::before {
   stroke: var(--bcg-black);
 }
 
-.header-section-modal {
-  background-color: var(--bcg-white);
-  padding-top: 18px;
-  padding-bottom: 18px;
-  border: 1.5px solid var(--bcg-black);
-  border-radius: 0 0 8px 8px;
+.darkmode .close-btn {
+  stroke: var(--bcg-white);
 }
 
 .header-nav-list-modal {
-  margin-left: 40px;
+  margin-left: 119px;
+
+  width: 118px;
 
   font-weight: 500;
   font-size: 14px;
@@ -188,8 +189,7 @@ input:checked[type='checkbox']::before {
   align-items: start;
   gap: 16px;
 
-  margin-top: 183px;
-  margin-left: 128px;
+  color: var(--bcg-white);
 }
 
 .header-shop-modal {
@@ -203,6 +203,9 @@ input:checked[type='checkbox']::before {
   border-radius: 36px;
   padding: 8px 16px;
   background-color: var(--brand-color-yellow);
+  font-weight: 700;
+
+  color: var(--bcg-black);
 }
 
 .header-logo-shop-modal {
@@ -239,6 +242,13 @@ input:checked[type='checkbox']::before {
 .header-button-icon-sign-up-modal {
   width: 20px;
   height: 20px;
+}
+
+.header-container-modal {
+  position: relative;
+  height: 100%;
+
+  padding-top: 247px;
 }
 
 // ----------------BUTTON_SIGN-UP--------------
