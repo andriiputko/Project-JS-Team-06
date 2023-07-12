@@ -1,4 +1,3 @@
-
 import modalAPI from './modalAPI';
 import amazonImg from '../images/amazon-icon.png';
 import bookImg from '../images/open-book-icon.png';
@@ -11,6 +10,10 @@ import sprite from '../images/icons.svg';
 export const modalFunc = async () => {
   const bookCategoryList = document.querySelectorAll('.book-category-list');
   const modalEl = document.querySelector('[data-modal-book]');
+  const bodyEl = document.querySelector('body');
+
+  let bookID = null;
+  let book = null;
 
   const instanceModalAPI = new modalAPI();
 
@@ -19,18 +22,29 @@ export const modalFunc = async () => {
       return;
     }
     modalEl.classList.remove('is-hidden');
+    bodyEl.style.overflow = 'hidden';
 
-    const bookID = event.target.dataset.id;
+    bookID = event.target.dataset.id;
     refreshModal(bookID);
   };
 
   const handleCloseClick = event => {
     modalEl.classList.add('is-hidden');
+    bodyEl.style.overflow = '';
+  };
+
+  const handleCloseEscape = event => {
+    if (event.key !== 'Escape') {
+      return;
+    }
+    modalEl.classList.add('is-hidden');
+    bodyEl.style.overflow = '';
+    document.removeEventListener('keydown', handleCloseEscape);
   };
 
   async function refreshModal(bookID) {
     try {
-      const book = await instanceModalAPI.fetchBook(bookID);
+      book = await instanceModalAPI.fetchBook(bookID);
       console.log(book);
 
       const markup = generateCardElement(book);
@@ -38,6 +52,8 @@ export const modalFunc = async () => {
 
       const buttonCloseEl = document.querySelector('[data-modal-book-close]');
       buttonCloseEl.addEventListener('click', handleCloseClick);
+
+      document.addEventListener('keydown', handleCloseEscape);
 
       const addButton = document.querySelector('[data-modal-add]');
       addButton.addEventListener('click', handleAddToShoppingList);
@@ -47,7 +63,10 @@ export const modalFunc = async () => {
   }
 
   const generateCardElement = book => {
-    const description = book.description.trim() !== '' ? book.description : "In a homage to Louisa May Alcott’s “Little Women,” a young man’s dark past resurfaces as he gets to know the family of his college sweetheart.";
+    const description =
+      book.description.trim() !== ''
+        ? book.description
+        : 'In a homage to Louisa May Alcott’s “Little Women,” a young man’s dark past resurfaces as he gets to know the family of his college sweetheart.';
 
     return `<div class="modal-book">
       <button class="modal-book-close" type="button" data-modal-book-close>
@@ -102,9 +121,7 @@ export const modalFunc = async () => {
         </div>
       </div>
       <div class="btn-box">
-        <button class="btn-add-shopping-list" type="button" data-modal-add>
-          ADD TO SHOPPING LIST
-        </button>
+        <button class="btn-add-shopping-list" type="button" data-modal-add>ADD TO SHOPPING LIST</button>
         <div id="shopping-list"></div>
         <div id="confirmation-message" style="text-align: center; opacity: 0.5; display: none;"></div>
       </div>
@@ -113,69 +130,88 @@ export const modalFunc = async () => {
 
   const handleAddToShoppingList = event => {
     const button = event.target;
-    const bookID = button.dataset.id;
+    console.log(event.target);
+    console.log(book);
+    // debugger;
 
-    if (button.textContent === "ADD TO SHOPPING LIST") {
-     
-      addToShoppingList(bookID);
-      button.textContent = "REMOVE FROM SHOPPING LIST";
+    if (button.textContent === 'ADD TO SHOPPING LIST') {
+      const result = addToShoppingList(book);
+
+      if (!result) {
+        return;
+      }
+
+      button.textContent = 'REMOVE FROM SHOPPING LIST';
       showConfirmationMessage();
     } else {
-      
-      removeFromShoppingList(bookID);
-      button.textContent = "ADD TO SHOPPING LIST";
+      // debugger;
+      removeFromShoppingList(book);
+      button.textContent = 'ADD TO SHOPPING LIST';
       removeConfirmationMessage();
     }
   };
 
-  function addToShoppingList(bookID) {
-    
-    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+  function addToShoppingList(book) {
+    const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
-    
-    if (!shoppingList.includes(bookID)) {
-      shoppingList.push(bookID);
+    const bookObj = shoppingList.find(el => {
+      return el._id === book._id;
+    });
+
+    if (bookObj) {
+      console.warn('There is the same object in local storage!');
+      return;
     }
 
-    
-    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+    shoppingList.push(book);
+    localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+    return book;
   }
 
-  function removeFromShoppingList(bookID) {
-    
-    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+  function removeFromShoppingList(book) {
+    const shoppingList = JSON.parse(localStorage.getItem('shoppingList'));
 
-    
-    const index = shoppingList.indexOf(bookID);
-    if (index > -1) {
-      shoppingList.splice(index, 1);
+    // const index = shoppingList.indexOf(book);
+    // if (index > -1) {
+    //   shoppingList.splice(index, 1);
+    // }
+
+    // debugger;
+    shoppingList.forEach((el, index) => {
+      if (el._id === book._id) {
+        shoppingList.splice(index, 1);
+        book = null;
+        return;
+      }
+    });
+
+    if (shoppingList.length === 0) {
+      localStorage.removeItem('shoppingList');
+      return;
     }
 
-    
-    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+    localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
   }
 
   const showConfirmationMessage = () => {
-    const message = "Congratulations! You have added the book to the shopping list. To delete, press the button 'Remove from the shopping list'.";
+    const message =
+      "Congratulations! You have added the book to the shopping list. To delete, press the button 'Remove from the shopping list'.";
 
-    
     const button = document.querySelector('[data-modal-add]');
     const parentElement = button.parentElement;
 
-   
-    const messageElement = document.createElement("p");
-    messageElement.style.marginTop = "8px";
-    messageElement.id = "confirmation-message";
-    messageElement.style.textAlign = "center";
-    messageElement.style.opacity = "0.5";
+    const messageElement = document.createElement('p');
+    messageElement.style.marginTop = '8px';
+    messageElement.id = 'confirmation-message';
+    messageElement.style.textAlign = 'center';
+    messageElement.style.opacity = '0.5';
     messageElement.textContent = message;
 
-    
     parentElement.appendChild(messageElement);
   };
 
   const removeConfirmationMessage = () => {
-    const messageElement = document.getElementById("confirmation-message");
+    const messageElement = document.getElementById('confirmation-message');
     if (messageElement) {
       messageElement.remove();
     }
@@ -185,6 +221,3 @@ export const modalFunc = async () => {
     element.addEventListener('click', handleImageClick);
   });
 };
-
-
-

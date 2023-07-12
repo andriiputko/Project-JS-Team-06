@@ -6,32 +6,32 @@ import amazonImgRetina from './images/amazon-icon@2x.png';
 import bookImgRetina from './images/open-book-icon@2x.png';
 import shopImgRetina from './images/book-shop-icon@2x.png';
 
-import './js/fondsSlider'
+import './js/fondsSlider';
 
 import sprite from './images/icons.svg';
 
 const shoppingListEl = document.querySelector('.shopping-list');
 const emptyListMessageEl = document.querySelector('.shopping-empty');
 
-const fetchBookData = () => {
-  return fetch(
-    'https://books-backend.p.goit.global/books/category?category=Graphic Books and Manga'
-  ).then(response => {
-    return response.json();
-  });
-};
+// const fetchBookData = () => {
+//   return fetch(
+//     'https://books-backend.p.goit.global/books/category?category=Graphic Books and Manga'
+//   ).then(response => {
+//     return response.json();
+//   });
+// };
 
-const bookObj = fetchBookData()
-  .then(response => {
-    const bookStorageArray = [];
-    bookStorageArray.push(response[0]);
-    bookStorageArray.push(response[3]);
-    bookStorageArray.push(response[5]);
-    localStorage.setItem('shopping-list', JSON.stringify(bookStorageArray));
-  })
-  .catch(console.warn);
+// const bookObj = fetchBookData()
+//   .then(response => {
+//     const bookStorageArray = [];
+//     bookStorageArray.push(response[0]);
+//     bookStorageArray.push(response[3]);
+//     bookStorageArray.push(response[5]);
+//     localStorage.setItem('shopping-list', JSON.stringify(bookStorageArray));
+//   })
+//   .catch(console.warn);
 
-let savedBooksList = JSON.parse(localStorage.getItem('shopping-list'));
+let savedBooksList = JSON.parse(localStorage.getItem('shoppingList'));
 
 if (savedBooksList) {
   emptyListMessageEl.classList.add('is-hidden');
@@ -58,19 +58,19 @@ const createCardMarkup = booksList => {
       <p class='shopping-item-descr'>${book.description}</p>
       <p class='shopping-item-author'>${book.author}</p>
       <ul class='shopping-list-links'>
-        <li><a href='#'><img
+        <li><a href='${book.buy_links[0].url}' target='_blank'><img
               class='shopping-link-img amazon-img'
               srcset="${amazonImg} 1x, ${amazonImgRetina} 2x"
               src='${amazonImg}'
               alt='Amazon'
             /></a></li>
-        <li><a href='#'><img
+        <li><a href='${book.buy_links[1].url}' target='_blank'><img
               class='shopping-link-img book-img'
               srcset="${bookImg} 1x, ${bookImgRetina} 2x"
               src='${bookImg}'
               alt='Open book'
             /></a></li>
-        <li><a href='#'><img
+        <li><a href='${book.buy_links[4].url}' target='_blank'><img
               class='shopping-link-img shop-img'
               srcset="${shopImg} 1x, ${shopImgRetina} 2x"
               src='${shopImg}'
@@ -93,7 +93,7 @@ let bookCardMarkup = createCardMarkup(savedBooksList);
 shoppingListEl.innerHTML = bookCardMarkup;
 
 const refreshLocalStorage = id => {
-  const bookStorageArray = JSON.parse(localStorage.getItem('shopping-list'));
+  const bookStorageArray = JSON.parse(localStorage.getItem('shoppingList'));
 
   bookStorageArray.forEach((book, index) => {
     if (book._id === id) {
@@ -102,11 +102,11 @@ const refreshLocalStorage = id => {
   });
 
   if (bookStorageArray.length === 0) {
-    localStorage.removeItem('shopping-list');
+    localStorage.removeItem('shoppingList');
     return;
   }
 
-  localStorage.setItem('shopping-list', JSON.stringify(bookStorageArray));
+  localStorage.setItem('shoppingList', JSON.stringify(bookStorageArray));
 
   return bookStorageArray;
 };

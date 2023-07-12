@@ -33,7 +33,6 @@ function scrollToTop() {
   }
 }
 
-
 function updateScrollButtonVisibility() {
   const scrollToTopButton = document.getElementById('scrollToTopButton');
   if (window.pageYOffset > 100) {
@@ -47,6 +46,7 @@ window.addEventListener(
   'scroll',
   throttle(function () {
     updateScrollButtonVisibility();
+
   
 
 window.addEventListener(
@@ -59,6 +59,7 @@ window.addEventListener(
       scrollToTopButton.style.display = 'none';
     }
 
+
   }, 200)
 );
 
@@ -69,9 +70,11 @@ scrollToTopButton.addEventListener(
   debounce(function () {
     scrollToTop();
   }, 300)
-
 );
 
 updateScrollButtonVisibility();
+
   
-}));
+  }));
+
+
