@@ -5,15 +5,20 @@ var loaderElement = document.querySelector('.loader');
 headerElement.style.display = 'none';
 mainElement.style.display = 'none';
 
-window.addEventListener('load', function() {
+const showLoader = () => {
   loaderElement.style.display = 'block';
 
   headerElement.style.display = 'none';
   mainElement.style.display = 'none';
-});
+};
 
-setTimeout(function() {
+window.addEventListener('load', showLoader);
+
+const hideLoader = () => {
   loaderElement.style.display = 'none';
   headerElement.style.display = 'block';
   mainElement.style.display = 'block';
-}, 3000);
+};
+
+setTimeout(hideLoader, 3000);
+export { showLoader, hideLoader };

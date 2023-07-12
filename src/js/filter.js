@@ -1,7 +1,7 @@
 import booksAPI from './booksAPI.js';
 import { modalFunc } from './modal-open-close';
-import { generateBookCategoryElements, showCards } from './booksCards.js';
-
+import { showCards } from './booksCards.js';
+import { hideLoader, showLoader } from './loader.js';
 const categoryInstance = new booksAPI();
 const listCategoryBooks = document.querySelector('.filter-list');
 const booksContainer = document.querySelector('.book-category-lists');
@@ -88,8 +88,17 @@ function updateCategoryClickEventListeners() {
   });
 }
 
-filterLink.addEventListener('click', () => {
+filterLink.addEventListener('click', async () => {
   filterLink.classList.add('active-filter');
+  try {
+    // showLoader();
+    const data = await categoryInstance.fetchBooks();
+    booksContainer.innerHTML = showCards(data).then(console.log('hi'));
+
+    // hideLoader();
+  } catch (error) {
+    console.error('Error:', error);
+  }
 });
 
 async function initializePage() {
