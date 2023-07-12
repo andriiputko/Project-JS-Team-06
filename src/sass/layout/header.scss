@@ -171,10 +171,16 @@ input:checked[type='checkbox']::before {
   padding-bottom: 18px;
   border: 1.5px solid var(--bcg-black);
   border-radius: 0 0 8px 8px;
+
+  position: absolute;
+  width: 100%;
+  top: 0;
 }
 
 .header-nav-list-modal {
-  margin-left: 40px;
+  margin-left: 119px;
+
+  width: 118px;
 
   font-weight: 500;
   font-size: 14px;
@@ -184,9 +190,6 @@ input:checked[type='checkbox']::before {
   flex-direction: column;
   align-items: start;
   gap: 16px;
-
-  margin-top: 183px;
-  margin-left: 128px;
 }
 
 .header-home-active-modal {
@@ -235,6 +238,13 @@ input:checked[type='checkbox']::before {
 .header-button-icon-sign-up-modal {
   width: 20px;
   height: 20px;
+}
+
+.header-container-modal {
+  position: relative;
+  height: 100%;
+
+  padding-top: 247px;
 }
 
 // ----------------BUTTON_SIGN-UP--------------
