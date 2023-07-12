@@ -282,14 +282,11 @@ input:checked[type='checkbox']::before {
     height: 20px;
   }
 
-  .darkmode .header-logo-shop {
-    fill: currentColor;
-  }
-
   .header-shop {
     display: flex;
     align-items: center;
     gap: 8px;
+    fill: currentColor;
   }
 
   .header-tab-active {
@@ -298,6 +295,7 @@ input:checked[type='checkbox']::before {
     padding: 7px 16px;
     background-color: var(--brand-color-yellow);
     height: 34px;
+    color: var(--bcg-black);
   }
 
   .header-checkbox {
@@ -333,10 +331,6 @@ input:checked[type='checkbox']::before {
   .header-button-icon-sign-up {
     width: 20px;
     height: 20px;
-  }
-
-  .darkmode .header-tab-active {
-    color: var(--bcg-black);
   }
 }
 
