@@ -37,14 +37,14 @@
   padding: 40px 24px;
   transform: scale(0.8);
   transform: translateY(33%);
-  z-index: 1;
+  z-index: 101;
 }
 
 
 // Доробити
-// .darkmode.modal-book {
-//   background-color: var(--bcg-black-main);
-// }
+.darkmode .modal-book {
+  background-color: var(--bcg-black-main);
+}
 // .darkmode.modal-book {
 //   background-color: var(—-background);
 // }
@@ -82,6 +82,10 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent;
   border: none;
+}
+
+.darkmode .modal-book-close {
+  stroke: var(--bcg-white);
 }
 
 @media screen and (min-width: 768px) {
@@ -179,6 +183,10 @@
     filter: grayscale(100%);
     transition: filter 300ms;
 }
+// Доробити
+.darkmode .trade-link-img {
+  filter: var(--bcg-white);
+}
 
 .trade-link-img:hover {
   filter: grayscale(100%) drop-shadow(1px 3px 3px grey);
@@ -197,6 +205,11 @@
   letter-spacing: -0.01em;
   padding: 14px 28px;
   width: auto;
+}
+
+.darkmode .btn-add-shopping-list {
+  background-color: var(--bcg-black-main);
+  color: var(--bcg-white);
 }
 
 @media screen and (min-width: 768px) {
