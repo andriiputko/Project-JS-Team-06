@@ -47,6 +47,7 @@ window.addEventListener(
   'scroll',
   throttle(function () {
     updateScrollButtonVisibility();
+  
 
 window.addEventListener(
   'scroll',
@@ -73,4 +74,4 @@ scrollToTopButton.addEventListener(
 
 updateScrollButtonVisibility();
   
-  }));
+}));
