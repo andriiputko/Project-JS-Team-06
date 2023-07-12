@@ -7,7 +7,6 @@ const toggleStorageKey = 'toggleState';
 
 const enableDarkMode = () => {
   document.body.classList.add('darkmode');
-  // modal.classList.add('darkmode');
   localStorage.setItem('darkMode', 'enabled');
 };
 
