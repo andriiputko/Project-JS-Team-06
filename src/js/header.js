@@ -5,10 +5,18 @@
     modal: document.getElementById('header-data-modal'),
   };
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+  refs.openModalBtn.addEventListener('click', openModal);
+  refs.closeModalBtn.addEventListener('click', closeModal);
 
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+  function openModal() {
+    refs.modal.classList.remove('is-hidden');
+    refs.closeModalBtn.classList.remove('is-hidden');
+    refs.openModalBtn.classList.add('is-hidden');
+  }
+
+  function closeModal() {
+    refs.modal.classList.add('is-hidden');
+    refs.closeModalBtn.classList.add('is-hidden');
+    refs.openModalBtn.classList.remove('is-hidden');
   }
 })();
