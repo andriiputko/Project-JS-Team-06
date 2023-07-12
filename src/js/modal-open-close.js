@@ -8,7 +8,6 @@ import shopImgRetina from '../images/book-shop-icon@2x.png';
 import sprite from '../images/icons.svg';
 import Notiflix from 'notiflix';
 
-
 export const modalFunc = async () => {
   const bookCategoryList = document.querySelectorAll('.book-category-list');
   const modalEl = document.querySelector('[data-modal-book]');
@@ -20,20 +19,31 @@ export const modalFunc = async () => {
   const instanceModalAPI = new modalAPI();
 
   const handleImageClick = event => {
-    if (event.target.nodeName !== 'IMG') {
-      return;
-    }
-    modalEl.classList.remove('is-hidden');
-    bodyEl.style.overflow = 'hidden';
+  event.stopPropagation(); 
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+  modalEl.classList.remove('is-hidden');
+  bodyEl.style.overflow = 'hidden';
 
-    bookID = event.target.dataset.id;
-    refreshModal(bookID);
-  };
+  bookID = event.target.dataset.id;
+  refreshModal(bookID);
 
-  const handleCloseClick = event => {
-    modalEl.classList.add('is-hidden');
-    bodyEl.style.overflow = '';
-  };
+  document.addEventListener('click', handleOutsideClick);
+};
+
+
+  const handleOutsideClick = event => {
+  if (event.target === modalEl) {
+    handleCloseClick();
+  }
+};
+
+const handleCloseClick = () => {
+  modalEl.classList.add('is-hidden');
+  bodyEl.style.overflow = '';
+  document.removeEventListener('click', handleOutsideClick);
+};
 
   const handleCloseEscape = event => {
     if (event.key !== 'Escape') {
@@ -47,7 +57,6 @@ export const modalFunc = async () => {
   async function refreshModal(bookID) {
     try {
       book = await instanceModalAPI.fetchBook(bookID);
-      console.log(book);
 
       const markup = generateCardElement(book);
       modalEl.innerHTML = markup;
@@ -77,7 +86,7 @@ export const modalFunc = async () => {
         </svg>
       </button>
       <div class="modal-wrapper">
-        <img class="modal-book-img" src="${book.book_image}" alt="${book.title}" width="287" height="408" />
+        <img class="modal-book-img" src="${book.book_image}" alt="${book.title}" width="287" height="458" />
         <div class="modal-wrapper-content">
           <h2 class="modal-book-name">${book.title}</h2>
           <h3 class="modal-book-author">${book.author}</h3>
@@ -130,55 +139,25 @@ export const modalFunc = async () => {
     </div>`;
   };
 
-
-
   const handleAddToShoppingList = event => {
-  const button = event.target;
-  console.log(event.target);
-  console.log(book);
-  // debugger;
+    const button = event.target;
 
-  if (button.textContent === 'ADD TO SHOPPING LIST') {
-    const result = addToShoppingList(book);
+    if (button.textContent === 'ADD TO SHOPPING LIST') {
+      const result = addToShoppingList(book);
 
-    if (!result) {
-      // Книга вже існує, вивести повідомлення
-      Notiflix.Notify.failure('This book is already on the shopping list.');
-      return;
+      if (!result) {
+        Notiflix.Notify.failure('This book is already on the shopping list.');
+        return;
+      }
+
+      button.textContent = 'REMOVE FROM SHOPPING LIST';
+      showConfirmationMessage();
+    } else if (button.textContent === 'REMOVE FROM SHOPPING LIST') {
+      removeFromShoppingList(book);
+      button.textContent = 'ADD TO SHOPPING LIST';
+      removeConfirmationMessage();
     }
-
-    button.textContent = 'REMOVE FROM SHOPPING LIST';
-    showConfirmationMessage();
-  } else {
-    removeFromShoppingList(book);
-    button.textContent = 'ADD TO SHOPPING LIST';
-    removeConfirmationMessage();
-  }
-};
-
-
-  // const handleAddToShoppingList = event => {
-  //   const button = event.target;
-  //   console.log(event.target);
-  //   console.log(book);
-  //   // debugger;
-
-  //   if (button.textContent === 'ADD TO SHOPPING LIST') {
-  //     const result = addToShoppingList(book);
-
-  //     if (!result) {
-  //       return;
-  //     }
-
-  //     button.textContent = 'REMOVE FROM SHOPPING LIST';
-  //     showConfirmationMessage();
-  //   } else {
-      
-  //     removeFromShoppingList(book);
-  //     button.textContent = 'ADD TO SHOPPING LIST';
-  //     removeConfirmationMessage();
-  //   }
-  // };
+  };
 
   function addToShoppingList(book) {
     const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
@@ -188,7 +167,7 @@ export const modalFunc = async () => {
     });
 
     if (bookObj) {
-      console.warn('There is the same object in local storage!');
+      
       return;
     }
 
@@ -217,20 +196,24 @@ export const modalFunc = async () => {
   }
 
   const showConfirmationMessage = () => {
+    const messageElement = document.getElementById('confirmation-message');
+    if (messageElement) {
+      messageElement.remove();
+    }
+
     const message =
       "Congratulations! You have added the book to the shopping list. To delete, press the button 'Remove from the shopping list'.";
 
     const button = document.querySelector('[data-modal-add]');
     const parentElement = button.parentElement;
 
-    const messageElement = document.createElement('p');
-    messageElement.style.marginTop = '8px';
-    messageElement.id = 'confirmation-message';
-    messageElement.style.textAlign = 'center';
-    messageElement.style.opacity = '0.5';
-    messageElement.textContent = message;
+    const newMessageElement = document.createElement('p');
+    newMessageElement.classList.add('text-message');
+    newMessageElement.id = 'confirmation-message';
+    newMessageElement.textContent = message;
+    
 
-    parentElement.appendChild(messageElement);
+    parentElement.appendChild(newMessageElement);
   };
 
   const removeConfirmationMessage = () => {
@@ -244,3 +227,10 @@ export const modalFunc = async () => {
     element.addEventListener('click', handleImageClick);
   });
 };
+
+
+
+
+
+
+
