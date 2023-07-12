@@ -32,6 +32,8 @@
 .book-category-list {
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
+  height: 550px;
 }
 
 .book-category-list-category-text {
@@ -111,7 +113,7 @@
   right: 0;
   overflow: hidden;
   width: 335px;
-  height: 70px;
+  height: 40px;
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 250ms ease-in-out;
@@ -119,10 +121,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 14px 28px;
+  padding: 0px 52px;
   border-radius: 0px 0px 8px 8px;
   background-color: #eac645;
-  color: var(--bcg-black);
   pointer-events: none;
 }
 .book-category-hover-effect-container:hover .overlay {
@@ -143,7 +144,12 @@
 }
 
 @media screen and (min-width: 768px) {
+  .main-category-text {
+    font-size: 48px;
+    line-height: 1.1;
+  }
   .book-category-list {
+    height: 400px;
     gap: 25px;
   }
   .book-category-list-img {
@@ -160,6 +166,7 @@
 
 @media screen and (min-width: 1440px) {
   .book-category-list {
+    height: auto;
     gap: 24px;
   }
   .book-category-list-img {
@@ -172,4 +179,7 @@
   .overlay {
     width: 180px;
   }
+}
+.show-all-cards{
+  height: auto;
 }

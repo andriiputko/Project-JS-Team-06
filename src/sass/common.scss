@@ -14,7 +14,9 @@ body {
   color: var(--foreground);
   transition: background-color 0.25s, color 0.25s;
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 .darkmode {
   --foreground: var(--bcg-white); /*ffffff*/
   --background: var(--bcg-black-main); /*202024*/
