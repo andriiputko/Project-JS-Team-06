@@ -48,6 +48,10 @@
   user-select: none;
 }
 
+.darkmode .shopping-empty-message {
+  color: var(--color-shop-empty-msg-dark);
+}
+
 @media (min-width: 768px) {
   .shopping-empty-message {
     width: 349px;
@@ -74,6 +78,11 @@
   border: 2px solid var(--color-border-shop-card);
   border-radius: 16px;
   background-color: var(--bcg-white);
+  transition: background-color 0.25s;
+}
+
+.darkmode .shopping-list-item {
+  background-color: var(--bcg-black);
 }
 
 .shopping-list-item:first-child {
@@ -233,6 +242,14 @@
   .shopping-link-img.amazon-img {
     width: 48px;
   }
+}
+
+.darkmode .amazon-img {
+  filter: invert(50%) brightness(175%);
+}
+
+.darkmode .amazon-img:hover {
+  filter: invert(50%) brightness(175%) drop-shadow(1px 3px 3px grey);
 }
 
 .shopping-link-img.book-img {

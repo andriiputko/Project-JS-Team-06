@@ -1,4 +1,3 @@
-
 'use strict';
 
 let darkMode = localStorage.getItem('darkMode');
@@ -8,13 +7,11 @@ const toggleStorageKey = 'toggleState';
 
 const enableDarkMode = () => {
   document.body.classList.add('darkmode');
-  modal.classList.add('darkmode');
   localStorage.setItem('darkMode', 'enabled');
 };
 
 const disableDarkMode = () => {
   document.body.classList.remove('darkmode');
-  modal.classList.remove('darkmode');
   localStorage.setItem('darkMode', null);
 };
 
