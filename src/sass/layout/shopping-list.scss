@@ -78,6 +78,7 @@
   border: 2px solid var(--color-border-shop-card);
   border-radius: 16px;
   background-color: var(--bcg-white);
+  transition: background-color 0.25s;
 }
 
 .darkmode .shopping-list-item {
