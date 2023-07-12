@@ -25,7 +25,7 @@ const markUp = fonds
     return `<li class="support-item swiper-slide">
   <a href="${url}" class="support-link" aria-label="${title}" target="_blank" rel="noopener norefferer nofollow">
   <p class="support-number">${number}</p>
-  <img class="support-img"
+  <img class="support-img" loading="lazy" width="100" height="100"
     srcset="${img.normal} 1x, ${img.retina} 2x"
     src="${img.normal}" type="image/png" alt="${title}">
   

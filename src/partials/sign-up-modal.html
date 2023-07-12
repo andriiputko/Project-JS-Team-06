@@ -1,0 +1,68 @@
+<div class="sign-up-backdrop" id="sign-up-modal">
+    <div class="sign-up-modal" id="sign-up-modal-window">
+      <button
+        class="modal__close-button"
+        type="button"
+        id="signUp-modal-close-btn"
+        aria-label="Close sign-up modal"
+      >
+        <svg class="close-button__x-icon">
+          <use href="./images/icons.svg#icon-close"></use>
+        </svg>
+      </button>
+  
+      <form class="modal-form" name="modal-form" id="singUp">
+        <div class="modal-form__input-field" id="name-input-wrapper">
+          <input
+            class="modal-form__input"
+            type="text"
+            id="signup-user-name"
+            name="user_name"
+            placeholder="Fill in your name"
+          />
+          <label for="user_name" class="modal-form__label">name</label>
+        </div>
+        <div class="modal-form__input-field">
+          <input
+            class="modal-form__input"
+            type="email"
+            id="signup-user-email"
+            name="user_email"
+            placeholder="Fill in your password"
+          />
+          <label for="user_email" class="modal-form__label">email</label>
+          <svg class="modal-form__icon">
+            <use href="./images/icons.svg#icon-mail"></use>
+          </svg>
+        </div>
+        <div class="modal-form__input-field">
+          <input
+            class="modal-form__input"
+            type="password"
+            id="signup-user-password"
+            name="user_password"
+            placeholder="Fill in password"
+          />
+          <label for="user_password" class="modal-form__label">password</label>
+          <svg class="modal-form__icon">
+            <use href="./images/icons.svg#icon-lock"></use>
+          </svg>
+        </div>
+  
+        <button type="submit" class="modal-form__submit" >Sign up</button>
+      </form>
+      <div class="modal-toggle">
+        <button type="button" class="modal-toggle__el modal-toggle__el--current">
+          Sign up
+        </button>
+        <button type="button" class="modal-toggle__el" id="signIn-open-btn">Sign in</button>
+      </div>
+      <!-- <div class="modal-toggle modal-toggle--signIn" id="modal-toggle-signIn">
+        <button class="modal-toggle__el" id="signUp-open-btn-second">
+          Sign up
+        </button>
+        <button class="modal-toggle__el modal-toggle__el--current">
+          Sign in
+        </button>
+      </div> -->
+    </div>

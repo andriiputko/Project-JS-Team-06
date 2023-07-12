@@ -1,7 +1,8 @@
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import booksAPI from './booksAPI.js';
 
 import { modalFunc } from './modal-open-close';
+import { hideLoader, showLoader } from './loader.js';
 
 const instanceBooksAPI = new booksAPI();
 const booksContainer = document.querySelector('.book-category-lists');
@@ -12,12 +13,12 @@ function generateBookListHTML(bookList) {
       book => `
         <li class="book-category-list-card">
           <a class="book-category-hover-effect-container">
-            <img class="book-category-list-img" data-id="${book._id}" src="${book.book_image}" alt="${book.title}" loading="lazy">
+            <img class="book-category-list-img" width="200" height="300" data-id="${book._id}" src="${book.book_image}" alt="${book.title}" loading="lazy">
             <div class="overlay">
               <p class="book-category-hover-effect">QUICK VIEW</p>
             </div>
           </a>
-          <h3 class="book-category-list-category-book-name">${book.title}</h3>
+          <h2 class="book-category-list-category-book-name">${book.title}</h2>
           <p class="book-category-list-book-author">${book.author}</p>
         </li>
       `
@@ -62,15 +63,15 @@ export async function generateBookCategoryElements(data) {
 
           if (filteredArray.length === 0) {
             button.style.display = 'none';
-            Notiflix.Notify.info("That's all books in this category");
+            Notify.info("That's all books in this category");
             return;
           }
 
           const bookListHTML = generateBookListHTML(filteredArray);
           bookListContainer.innerHTML += bookListHTML;
-
+          bookListContainer.classList.add('show-all-cards');
           button.style.display = 'none';
-          Notiflix.Notify.info("That's all books in this category");
+          Notify.info("That's all books in this category");
         }
       } catch (error) {
         console.error('Error:', error);
@@ -85,6 +86,7 @@ export async function generateBookCategoryElements(data) {
 
 export async function showCards() {
   try {
+    showLoader();
     const data = await instanceBooksAPI.fetchBooks();
     const elements = await generateBookCategoryElements(data);
 
@@ -93,6 +95,7 @@ export async function showCards() {
     });
 
     modalFunc();
+    hideLoader();
   } catch (error) {
     console.error('Error:', error);
   }

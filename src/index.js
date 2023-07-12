@@ -9,3 +9,4 @@ import { initLoader } from './js/loader';
 import './js/themeDark';
 import './js/fondsSlider';
 import './js/header.js';
+import './js/sign-up-modal';

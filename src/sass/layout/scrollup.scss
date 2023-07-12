@@ -1,20 +1,18 @@
- .scrollToTopButton {
-  display: none;
+.scrollToTopButton {
   position: fixed;
+  visibility: hidden;
+  opacity: 0;
   bottom: 20px;
   right: 20px;
   z-index: 99;
-  width: 40px;
-  height: 40px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  background-color: transparent;
   cursor: pointer;
-  font-size: 16px;
-  transition: opacity 0.3s ease-in-out;
+  transition: visibility 0.25s, opacity 0.25s, transform 0.25s;
+  border: none;
 }
 
 .scrollToTopButton:hover {
-  opacity: 0.7;
+  transform: scale(1.1);
 }

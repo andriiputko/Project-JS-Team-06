@@ -12,7 +12,7 @@
   padding: 20px 0;
   transition: opacity 500ms, visibility 500ms, transform 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: rgba(0, 0, 0, 0.215);
+  background-color: #11111166;
 }
 
 .backdrop-book.is-hidden {
@@ -25,11 +25,9 @@
 .modal-book {
   position: relative;
   overflow: hidden;
-  overflow-y: auto;
   width: 100%;
-  height: 100%;
+  height: auto;
   max-width: 335px;
-  max-height: 762px;
   background-color: var(--bcg-white-main);
   border-radius: 18px;
   border: 2px solid var(--bcg-black);
@@ -37,33 +35,23 @@
   padding: 40px 24px;
   transform: scale(0.8);
   transform: translateY(33%);
-  z-index: 1;
+  z-index: 103;
 }
 
 
-// Доробити
-// .darkmode.modal-book {
-//   background-color: var(--bcg-black-main);
-// }
-// .darkmode.modal-book {
-//   background-color: var(—-background);
-// }
+
+.darkmode .modal-book {
+  background-color: var(--bcg-black-main);
+}
+
 
 @media screen and (min-width: 768px) {
   .modal-book {
     max-width: 579px;
-    max-height: 465px;
+    
     padding: 40px;
   }
 }
-
-@media screen and (min-width: 1440px) {
-    .modal-book {
-    height: 100%;
-    }
-}
-
-/* overflow: hidden;  видалити в js */
 
 .backdrop-book.is-hidden .modal-book {
   transform: scale(0);
@@ -77,11 +65,15 @@
   top: 12px;
   right: 12px;
   stroke: var(--bcg-black);
-  transition-property: fill;
+  transition-property: stroke;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent;
   border: none;
+}
+
+.darkmode .modal-book-close {
+  stroke: var(--bcg-white);
 }
 
 @media screen and (min-width: 768px) {
@@ -169,6 +161,7 @@
   margin-top: 14px;
 }
 
+
 @media screen and (min-width: 768px) {
     .trade-list {
         margin-top: 24px;
@@ -180,15 +173,21 @@
     transition: filter 300ms;
 }
 
+.darkmode .trade-link-img {
+  --foreground: var(--bcg-white);
+}
+
 .trade-link-img:hover {
   filter: grayscale(100%) drop-shadow(1px 3px 3px grey);
 }
 
 .btn-box {
-  justify-content: center;
+  text-align: center;
   margin-top: 40px;
   margin-bottom: 0;
 }
+
+
 
 .btn-add-shopping-list {
   font-weight: 700;
@@ -197,6 +196,13 @@
   letter-spacing: -0.01em;
   padding: 14px 28px;
   width: auto;
+  margin: 0 auto;
+  transition: background-color 250ms, color 250ms;
+}
+
+.darkmode .btn-add-shopping-list {
+  background-color: var(--bcg-black-main);
+  color: var(--bcg-white);
 }
 
 @media screen and (min-width: 768px) {
@@ -210,4 +216,20 @@
 .btn-add-shopping-list:hover {
   background-color: var(--brand-color-lilla);
   color: var(--bcg-white);
+}
+
+.text-message {
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  opacity: 0.5;
+  margin-top: 8px;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (min-width: 768px) {
+  .text-message {
+    font-size: 12px;
+    line-height: 1.16;
+  }
 }
