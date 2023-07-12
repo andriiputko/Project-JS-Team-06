@@ -3,12 +3,26 @@ import { modalFunc } from './modal-open-close';
 import { generateBookCategoryElements, showCards } from './booksCards.js';
 
 const categoryInstance = new booksAPI();
+const instanceTopBooksAPI = new booksAPI();
 const listCategoryBooks = document.querySelector('.filter-list');
 const booksContainer = document.querySelector('.book-category-lists');
 const filterLink = document.querySelector('.filter-link');
 
 async function createBooksCategory(categories) {
-  categories.sort((a, b) => a.position - b.position);
+  categories.sort((a, b) => {
+
+    const nameA = a.list_name.toUpperCase(); // Конвертуємо великі і маленькі літери для правильного порівняння
+    const nameB = b.list_name.toUpperCase();
+
+    if (nameA < nameB) {
+      return -1; // a перед b
+    }
+    if (nameA > nameB) {
+      return 1; // a після b
+    }
+    return 0; // a рівне b
+  });
+
 
   const markup = categories
     .map(
@@ -101,3 +115,4 @@ async function initializePage() {
 }
 
 initializePage();
+

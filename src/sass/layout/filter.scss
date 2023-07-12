@@ -47,7 +47,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.1;
-  margin-bottom: 32px;
+  //margin-bottom: 32px;
   color: var(--bcg-black);
 }
 
@@ -68,8 +68,20 @@
 .filter-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  
 }
+
+.filter-list-item {
+   height: 18px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .filter-list-item {
+      height: 24px;
+    }
+  }
 
 .category-filter-link {
   font-weight: 400;
@@ -79,6 +91,8 @@
   white-space: nowrap;
   cursor: pointer;
   text-transform: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 @media screen and (min-width: 768px) {
   .category-filter-link {
