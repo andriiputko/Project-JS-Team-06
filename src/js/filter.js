@@ -1,11 +1,12 @@
 import booksAPI from './booksAPI.js';
 import { modalFunc } from './modal-open-close';
-import { showCards } from './booksCards.js';
+import { generateBookCategoryElements, showCards } from './booksCards.js';
+import { hideLoader, showLoader } from './loader.js';
 const categoryInstance = new booksAPI();
 const listCategoryBooks = document.querySelector('.filter-list');
 const booksContainer = document.querySelector('.book-category-lists');
 const filterLink = document.querySelector('.filter-link');
-
+const mainCategoryText = document.querySelector('.main-category-text');
 async function createBooksCategory(categories) {
   categories.sort((a, b) => a.position - b.position);
 
@@ -34,6 +35,7 @@ async function showList() {
 
 async function displayBooksByCategory(category) {
   try {
+    showLoader();
     const url = `https://books-backend.p.goit.global/books/category?category=${category}`;
     const response = await fetch(url);
     const books = await response.json();
@@ -64,6 +66,7 @@ async function displayBooksByCategory(category) {
     booksContainer.appendChild(categoryWrapper);
 
     modalFunc();
+    hideLoader();
   } catch (error) {
     console.error('Error:', error);
   }
@@ -73,7 +76,6 @@ function handleCategoryClick(event) {
   event.preventDefault();
 
   const selectedCategory = event.target.textContent;
-  const mainCategoryText = document.querySelector('.main-category-text');
 
   mainCategoryText.textContent = selectedCategory;
   displayBooksByCategory(selectedCategory);
@@ -90,8 +92,14 @@ function updateCategoryClickEventListeners() {
 filterLink.addEventListener('click', async () => {
   filterLink.classList.add('active-filter');
   try {
+    showLoader();
+    mainCategoryText.innerHTML = `Best Sellers <span class="main-category-secondary-text">Books</span>`;
     const data = await categoryInstance.fetchBooks();
-    booksContainer.innerHTML = showCards(data);
+    booksContainer.innerHTML = '';
+    const markup = await generateBookCategoryElements(data);
+    booksContainer.append(...markup);
+    modalFunc();
+    hideLoader();
   } catch (error) {
     console.error('Error:', error);
   }
