@@ -13,7 +13,7 @@ function generateBookListHTML(bookList) {
       book => `
         <li class="book-category-list-card">
           <a class="book-category-hover-effect-container">
-            <img class="book-category-list-img" width="200" height="300" data-id="${book._id}" src="${book.book_image}" alt="${book.title}" >
+            <img class="book-category-list-img" width="200" height="300" data-id="${book._id}" src="${book.book_image}" alt="${book.title}" loading="lazy">
             <div class="overlay">
               <p class="book-category-hover-effect">QUICK VIEW</p>
             </div>
