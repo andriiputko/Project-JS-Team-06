@@ -12,7 +12,7 @@ const showLoader = () => {
   mainElement.style.display = 'none';
 };
 
-window.addEventListener('load', showLoader);
+
 
 const hideLoader = () => {
   loaderElement.style.display = 'none';
@@ -20,5 +20,6 @@ const hideLoader = () => {
   mainElement.style.display = 'block';
 };
 
-setTimeout(hideLoader, 3000);
+
+
 export { showLoader, hideLoader };
