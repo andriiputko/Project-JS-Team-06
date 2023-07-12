@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import booksAPI from './booksAPI.js';
 
 import { modalFunc } from './modal-open-close';
@@ -62,7 +62,7 @@ export async function generateBookCategoryElements(data) {
 
           if (filteredArray.length === 0) {
             button.style.display = 'none';
-            Notiflix.Notify.info("That's all books in this category");
+            Notify.info("That's all books in this category");
             return;
           }
 
@@ -70,7 +70,7 @@ export async function generateBookCategoryElements(data) {
           bookListContainer.innerHTML += bookListHTML;
 
           button.style.display = 'none';
-          Notiflix.Notify.info("That's all books in this category");
+          Notify.info("That's all books in this category");
         }
       } catch (error) {
         console.error('Error:', error);
