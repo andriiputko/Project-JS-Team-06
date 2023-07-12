@@ -9,7 +9,6 @@ import sprite from '../images/icons.svg';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
 export const modalFunc = async () => {
   const bookCategoryList = document.querySelectorAll('.book-category-list');
   const modalEl = document.querySelector('[data-modal-book]');
@@ -21,31 +20,30 @@ export const modalFunc = async () => {
   const instanceModalAPI = new modalAPI();
 
   const handleImageClick = event => {
-  event.stopPropagation(); 
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-  modalEl.classList.remove('is-hidden');
-  bodyEl.style.overflow = 'hidden';
+    event.stopPropagation();
+    if (event.target.nodeName !== 'IMG') {
+      return;
+    }
+    modalEl.classList.remove('is-hidden');
+    bodyEl.style.overflow = 'hidden';
 
-  bookID = event.target.dataset.id;
-  refreshModal(bookID);
+    bookID = event.target.dataset.id;
+    refreshModal(bookID);
 
-  document.addEventListener('click', handleOutsideClick);
-};
-
+    document.addEventListener('click', handleOutsideClick);
+  };
 
   const handleOutsideClick = event => {
-  if (event.target === modalEl) {
-    handleCloseClick();
-  }
-};
+    if (event.target === modalEl) {
+      handleCloseClick();
+    }
+  };
 
-const handleCloseClick = () => {
-  modalEl.classList.add('is-hidden');
-  bodyEl.style.overflow = '';
-  document.removeEventListener('click', handleOutsideClick);
-};
+  const handleCloseClick = () => {
+    modalEl.classList.add('is-hidden');
+    bodyEl.style.overflow = '';
+    document.removeEventListener('click', handleOutsideClick);
+  };
 
   const handleCloseEscape = event => {
     if (event.key !== 'Escape') {
@@ -143,12 +141,12 @@ const handleCloseClick = () => {
 
   const handleAddToShoppingList = event => {
     const button = event.target;
-    
+
     if (button.textContent === 'ADD TO SHOPPING LIST') {
       const result = addToShoppingList(book);
 
       if (!result) {
-        Notiflix.Notify.failure('This book is already on the shopping list.');
+        Notify.warning('This book is already on the shopping list.');
         return;
       }
 
@@ -161,7 +159,6 @@ const handleCloseClick = () => {
     }
   };
 
-
   function addToShoppingList(book) {
     const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
@@ -170,7 +167,6 @@ const handleCloseClick = () => {
     });
 
     if (bookObj) {
-      
       return;
     }
 
@@ -214,7 +210,6 @@ const handleCloseClick = () => {
     newMessageElement.classList.add('text-message');
     newMessageElement.id = 'confirmation-message';
     newMessageElement.textContent = message;
-    
 
     parentElement.appendChild(newMessageElement);
   };
@@ -230,10 +225,3 @@ const handleCloseClick = () => {
     element.addEventListener('click', handleImageClick);
   });
 };
-
-
-
-
-
-
-
