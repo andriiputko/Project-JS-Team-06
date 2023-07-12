@@ -5,6 +5,8 @@
 @media (min-width: 1440px) {
   .shopping-list-container .support-section {
     display: block;
+    margin-top: 40px;
+    max-width: 356px;
   }
 }
 
@@ -32,10 +34,6 @@
   color: var(--brand-color-lilla);
 }
 
-.support-section {
-  margin-top: 40px;
-}
-
 .shopping-empty-message {
   text-align: center;
   width: 244px;
@@ -46,6 +44,7 @@
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none;
+  transition: color 0.25s;
 }
 
 .darkmode .shopping-empty-message {
@@ -227,7 +226,7 @@
 }
 
 .shopping-link-img {
-  transition: filter 300ms;
+  transition: filter 0.25s;
 }
 
 .shopping-link-img:hover {
@@ -245,11 +244,11 @@
 }
 
 .darkmode .amazon-img {
-  filter: invert(50%) brightness(175%);
+  filter: invert(50%) brightness(275%);
 }
 
 .darkmode .amazon-img:hover {
-  filter: invert(50%) brightness(175%) drop-shadow(1px 3px 3px grey);
+  filter: invert(50%) brightness(275%) drop-shadow(1px 3px 3px grey);
 }
 
 .shopping-link-img.book-img {
