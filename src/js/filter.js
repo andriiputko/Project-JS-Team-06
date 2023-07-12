@@ -14,7 +14,7 @@ async function createBooksCategory(categories) {
     .map(
       category => `
       <li class="filter-list-item">
-        <a href="#" class="category-filter-link">${category.list_name}</a>
+        <p class="category-filter-link">${category.list_name}</p>
       </li>
     `
     )
