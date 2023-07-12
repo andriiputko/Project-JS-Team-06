@@ -38,17 +38,14 @@
   z-index: 103;
 }
 
-
-
 .darkmode .modal-book {
   background-color: var(--bcg-black-main);
 }
 
-
 @media screen and (min-width: 768px) {
   .modal-book {
     max-width: 579px;
-    
+
     padding: 40px;
   }
 }
@@ -94,17 +91,16 @@
   stroke: var(--brand-color-lilla);
 }
 
-
 @media screen and (min-width: 768px) {
-    .modal-wrapper {
-        display: flex;
-    }
+  .modal-wrapper {
+    display: flex;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .modal-wrapper-content {
-        margin-left: 24px;
-    }
+  .modal-wrapper-content {
+    margin-left: 24px;
+  }
 }
 
 .modal-book-img {
@@ -161,21 +157,20 @@
   margin-top: 14px;
 }
 
-
 @media screen and (min-width: 768px) {
-    .trade-list {
-        margin-top: 24px;
-    }
+  .trade-list {
+    margin-top: 24px;
+  }
 }
 
 .trade-link-img {
-    filter: grayscale(100%);
-    transition: filter 300ms;
+  filter: grayscale(100%);
+  transition: filter 300ms;
 }
 
-.darkmode .trade-link-img {
-  --foreground: var(--bcg-white);
-}
+// .darkmode .trade-link-img {
+//   --foreground: var(--bcg-white);
+// }
 
 .trade-link-img:hover {
   filter: grayscale(100%) drop-shadow(1px 3px 3px grey);
@@ -186,8 +181,6 @@
   margin-top: 40px;
   margin-bottom: 0;
 }
-
-
 
 .btn-add-shopping-list {
   font-weight: 700;
