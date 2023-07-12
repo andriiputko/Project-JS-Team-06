@@ -7,6 +7,7 @@ import bookImgRetina from './images/open-book-icon@2x.png';
 import shopImgRetina from './images/book-shop-icon@2x.png';
 
 import './js/fondsSlider';
+import './js/themeDark';
 
 import sprite from './images/icons.svg';
 
