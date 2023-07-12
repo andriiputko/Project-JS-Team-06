@@ -283,7 +283,7 @@ input:checked[type='checkbox']::before {
   }
 
   .darkmode .header-logo-shop {
-    fill: var(--bcg-white);
+    fill: currentColor;
   }
 
   .header-shop {
