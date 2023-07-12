@@ -69,7 +69,7 @@ export async function generateBookCategoryElements(data) {
 
           const bookListHTML = generateBookListHTML(filteredArray);
           bookListContainer.innerHTML += bookListHTML;
-
+          bookListContainer.classList.add('show-all-cards');
           button.style.display = 'none';
           Notify.info("That's all books in this category");
         }

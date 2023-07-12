@@ -36,9 +36,11 @@ function scrollToTop() {
 function updateScrollButtonVisibility() {
   const scrollToTopButton = document.getElementById('scrollToTopButton');
   if (window.pageYOffset > 100) {
-    scrollToTopButton.style.display = 'block';
+    scrollToTopButton.style.visibility = 'visible';
+    scrollToTopButton.style.opacity = '1';
   } else {
-    scrollToTopButton.style.display = 'none';
+    scrollToTopButton.style.visibility = 'hidden';
+    scrollToTopButton.style.opacity = '0';
   }
 }
 
@@ -47,34 +49,29 @@ window.addEventListener(
   throttle(function () {
     updateScrollButtonVisibility();
 
-  
+    window.addEventListener(
+      'scroll',
+      throttle(function () {
+        const scrollToTopButton = document.getElementById('scrollToTopButton');
+        if (window.pageYOffset > 100) {
+          scrollToTopButton.style.visibility = 'visible';
+          scrollToTopButton.style.opacity = '1';
+        } else {
+          scrollToTopButton.style.visibility = 'hidden';
+          scrollToTopButton.style.opacity = '0';
+        }
+      }, 200)
+    );
 
-window.addEventListener(
-  'scroll',
-  throttle(function () {
     const scrollToTopButton = document.getElementById('scrollToTopButton');
-    if (window.pageYOffset > 100) {
-      scrollToTopButton.style.display = 'block';
-    } else {
-      scrollToTopButton.style.display = 'none';
-    }
 
+    scrollToTopButton.addEventListener(
+      'click',
+      debounce(function () {
+        scrollToTop();
+      }, 300)
+    );
 
-  }, 200)
+    updateScrollButtonVisibility();
+  })
 );
-
-const scrollToTopButton = document.getElementById('scrollToTopButton');
-
-scrollToTopButton.addEventListener(
-  'click',
-  debounce(function () {
-    scrollToTop();
-  }, 300)
-);
-
-updateScrollButtonVisibility();
-
-  
-  }));
-
-

@@ -2,14 +2,13 @@
  const signUpModalEl = document.querySelector('#sign-up-modal');
  const signUpModalWindowEl = document.querySelector('#sign-up-modal-window');
  const closeSignUpBtnEl = document.querySelector('#signUp-modal-close-btn');
- const openSignUpBtnSecondEl = document.querySelector('#signUp-open-btn-second');
+ 
 
 
  openSignUpBtnEl.addEventListener('click', handleClickOnSingUpOpenBtn);
  closeSignUpBtnEl.addEventListener('click', handleClickOnSingUpCloseBtn);
  signUpModalEl.addEventListener('click', handleClickOnsingUpBackdrop);
- openSignUpBtnSecondEl.addEventListener('click', handleClickOnSingUpSecondCloseBtn);
- userBarMenu.addEventListener('click', openUserBarMenu);
+
 
 
 
@@ -18,7 +17,7 @@
        
       }
     
-    export function handleClickOnSingUpCloseBtn() {
+    function handleClickOnSingUpCloseBtn() {
         signUpModalEl.classList.remove('open');
     }
 

@@ -13,11 +13,9 @@
     // background-size: cover;
     background: linear-gradient(
       -47deg,
-      #4935ff,
+      #c1bafd,
       #4f2ee8,
-      #4b34ae,
-      #833ab4,
-      #6417bd
+      
     );
     background-size: 400% 400%;
     height: 100vh;
@@ -62,7 +60,10 @@
         }
       }
 
-
+      .darkmode .sign-up-modal{
+        background-color: var(--bcg-black);
+        border: 2px solid var(--bcg-white);
+      }
 
       .modal__close-button {
         position: absolute;
@@ -84,6 +85,10 @@
         }
       }
       
+      .darkmode .modal__close-button {
+        stroke: var(--bcg-white);
+      }
+
       .close-button__x-icon {
         fill: var(--bcg-black);
         height: 20px;
@@ -98,11 +103,14 @@
       }
       
       .modal-form {
-        width: 295px;
+        width: 225px;
         display: flex;
         flex-direction: column;
         gap: 24px;
-      
+        
+        @media  screen and (min-width:768px) {
+          width: 295px;
+        }
         @media screen and (min-width:1440px) {
           width: 500px;
           gap: 28px;
@@ -139,6 +147,19 @@
         }
       }
       
+      .darkmode .modal-form__input {
+        border: 2px solid var(--bcg-white);
+        color: var(--bcg-white);
+        &::placeholder {
+          opacity: 0;
+          transition: opacity 250ms ease-in-out;
+          color: var(--bcg-white);
+      }
+      &:focus::placeholder {
+        opacity: 1;
+      }
+    }
+
       .modal-form__label {
         position: absolute;
         top: 50%;
@@ -178,6 +199,11 @@
           width: 28px;
         }
       }
+
+      .darkmode .modal-form__icon {
+        fill: var(--bcg-black);
+        stroke: var(--bcg-white);
+      }
       
       .modal-form__submit {
         width: 100%;
@@ -199,6 +225,11 @@
           font-size: 18px;
         }
       }
+
+      .darkmode .modal-form__submit {
+        background-color: var(--bcg-white);
+        color: var(--bcg-black);
+      }
       
       .modal-toggle {
         display: flex;
@@ -218,6 +249,8 @@
         font-size: 14px;
         text-transform: uppercase;
         transition: color 250ms ease-in-out;
+        color: #11111180;
+        ;
       
         &:hover {
           color: var(--brand-color-lilla);
@@ -228,7 +261,15 @@
         }
       }
       
+      .darkmode  .modal-toggle__el {
+        color: var(--bcg-white);
+      }
+
       .modal-toggle__el--current {
         text-decoration: underline;
+        color: var(--brand-color-lilla);
+      }
+
+      .darkmode .modal-toggle__el--current {
         color: var(--brand-color-lilla);
       }

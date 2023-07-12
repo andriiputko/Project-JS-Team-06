@@ -6,7 +6,9 @@ import amazonImgRetina from '../images/amazon-icon@2x.png';
 import bookImgRetina from '../images/open-book-icon@2x.png';
 import shopImgRetina from '../images/book-shop-icon@2x.png';
 import sprite from '../images/icons.svg';
-import Notiflix from 'notiflix';
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 export const modalFunc = async () => {
   const bookCategoryList = document.querySelectorAll('.book-category-list');
@@ -141,7 +143,7 @@ const handleCloseClick = () => {
 
   const handleAddToShoppingList = event => {
     const button = event.target;
-
+    
     if (button.textContent === 'ADD TO SHOPPING LIST') {
       const result = addToShoppingList(book);
 
@@ -158,6 +160,7 @@ const handleCloseClick = () => {
       removeConfirmationMessage();
     }
   };
+
 
   function addToShoppingList(book) {
     const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];

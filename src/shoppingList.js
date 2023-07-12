@@ -1,10 +1,13 @@
-import createBookCards from './hbs/createBookCards.hbs';
 import amazonImg from './images/amazon-icon.png';
 import bookImg from './images/open-book-icon.png';
 import shopImg from './images/book-shop-icon.png';
 import amazonImgRetina from './images/amazon-icon@2x.png';
 import bookImgRetina from './images/open-book-icon@2x.png';
 import shopImgRetina from './images/book-shop-icon@2x.png';
+
+import { hideLoader, showLoader } from './js/loader.js';
+import { scrollup } from './js/scrollup';
+import { header } from './js/header.js';
 
 import './js/themeDark';
 import './js/fondsSlider';
@@ -13,24 +16,22 @@ import sprite from './images/icons.svg';
 
 const shoppingListEl = document.querySelector('.shopping-list');
 const emptyListMessageEl = document.querySelector('.shopping-empty');
+const headerNavListEl = document.querySelector('.header-nav-list');
+const headerNavListModal = document.querySelector('.header-nav-list-modal');
 
-// const fetchBookData = () => {
-//   return fetch(
-//     'https://books-backend.p.goit.global/books/category?category=Graphic Books and Manga'
-//   ).then(response => {
-//     return response.json();
-//   });
-// };
+const addRemoveHeaderClass = () => {
+  headerNavListEl.lastElementChild.classList.add('header-tab-active');
+  headerNavListEl.firstElementChild.classList.remove('header-tab-active');
+};
 
-// const bookObj = fetchBookData()
-//   .then(response => {
-//     const bookStorageArray = [];
-//     bookStorageArray.push(response[0]);
-//     bookStorageArray.push(response[3]);
-//     bookStorageArray.push(response[5]);
-//     localStorage.setItem('shopping-list', JSON.stringify(bookStorageArray));
-//   })
-//   .catch(console.warn);
+const addRemoveModalClass = () => {
+  headerNavListModal.lastElementChild.classList.add('header-active-modal');
+  headerNavListModal.firstElementChild.classList.remove('header-active-modal');
+};
+
+showLoader();
+addRemoveHeaderClass();
+addRemoveModalClass();
 
 let savedBooksList = JSON.parse(localStorage.getItem('shoppingList'));
 
@@ -135,3 +136,5 @@ const handleClick = event => {
 };
 
 shoppingListEl.addEventListener('click', handleClick);
+
+setTimeout(hideLoader, 1000);
