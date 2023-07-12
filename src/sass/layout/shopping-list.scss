@@ -1,9 +1,9 @@
-.side-bar.shopping-list-sidebar {
+.shopping-list-container .support-section {
   display: none;
 }
 
 @media (min-width: 1440px) {
-  .side-bar.shopping-list-sidebar {
+  .shopping-list-container .support-section {
     display: block;
   }
 }
