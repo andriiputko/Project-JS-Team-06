@@ -74,12 +74,18 @@ async function displayBooksByCategory(category) {
 
 function handleCategoryClick(event) {
   event.preventDefault();
-
+  filterLink.classList.remove('active-filter');
   const selectedCategory = event.target.textContent;
+  const mainCategoryText = document.querySelector('.main-category-text');
 
   mainCategoryText.textContent = selectedCategory;
   displayBooksByCategory(selectedCategory);
-  filterLink.classList.remove('active-filter');
+
+  categoryLinks.forEach(link => {
+    link.classList.remove('active-filter');
+  });
+
+  event.target.classList.add('active-filter');
 }
 
 function updateCategoryClickEventListeners() {
