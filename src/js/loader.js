@@ -20,5 +20,6 @@ const hideLoader = () => {
   mainElement.style.display = 'block';
 };
 
-setTimeout(hideLoader, 3000);
+setTimeout(hideLoader, 1);
+
 export { showLoader, hideLoader };
