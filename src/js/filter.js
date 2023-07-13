@@ -42,7 +42,7 @@ async function displayBooksByCategory(category) {
 
     const categoryWrapper = document.createElement('div');
     categoryWrapper.innerHTML = `
-      <ul class="book-category-list">
+      <ul class="book-category-list show-all-cards">
         ${books
           .map(
             book => `
