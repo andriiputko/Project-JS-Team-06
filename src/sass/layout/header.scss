@@ -119,6 +119,8 @@ input:checked[type='checkbox']::before {
 .backdrop {
   position: fixed;
   z-index: 100;
+  visibility: hidden;
+  opacity: 0;
   top: 0;
   bottom: 0;
   width: 100%;
@@ -128,13 +130,21 @@ input:checked[type='checkbox']::before {
   transition: opacity, visibility, transform;
   transition-timing-function: cubic-bezier(0.2, 0, 0.2, 1);
   transition-duration: 250ms;
-}
+  transform: scale(1.1);
 
-.backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: scale(1.5);
+  &.open {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (min-width: 768px) {
+    &.open {
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(1.1);
+    }
+  }
 }
 
 // ----------------MODAL------------------
@@ -157,6 +167,12 @@ input:checked[type='checkbox']::before {
   padding: 0;
 
   background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .modal-close-btn {
+    display: none;
+  }
 }
 
 .modal-close-btn:hover,
@@ -316,10 +332,6 @@ input:checked[type='checkbox']::before {
     display: flex;
     text-align: center;
     margin-right: 24px;
-  }
-
-  .backdrop {
-    display: none;
   }
 
   // ----------------BUTTON_LOG-OUT--------------
