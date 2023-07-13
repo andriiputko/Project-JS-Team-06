@@ -12,8 +12,11 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.1;
-  margin-bottom: 16px;
+  padding-bottom: 16px;
   color: var(--bcg-black);
+}
+.darkmode .filter-link {
+  color: var(--bcg-white);
 }
 .filter-section::-webkit-scrollbar {
   width: 8px;
