@@ -9,13 +9,13 @@
   refs.closeModalBtn.addEventListener('click', closeModal);
 
   function openModal() {
-    refs.modal.classList.remove('is-hidden');
+    refs.modal.classList.add('open');
     refs.closeModalBtn.classList.remove('is-hidden');
     refs.openModalBtn.classList.add('is-hidden');
   }
 
   function closeModal() {
-    refs.modal.classList.add('is-hidden');
+    refs.modal.classList.remove('open');
     refs.closeModalBtn.classList.add('is-hidden');
     refs.openModalBtn.classList.remove('is-hidden');
   }
