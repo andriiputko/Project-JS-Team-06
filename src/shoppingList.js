@@ -27,6 +27,7 @@ const addRemoveHeaderClass = () => {
 const addRemoveModalClass = () => {
   headerNavListModal.lastElementChild.classList.add('header-active-modal');
   headerNavListModal.firstElementChild.classList.remove('header-active-modal');
+  headerNavListModal.style.width = '156px';
 };
 
 showLoader();
