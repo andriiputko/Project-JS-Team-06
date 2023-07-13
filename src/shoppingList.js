@@ -11,6 +11,7 @@ import { header } from './js/header.js';
 
 import './js/themeDark';
 import './js/fondsSlider';
+import './js/sign-up-modal';
 
 import sprite from './images/icons.svg';
 
