@@ -96,6 +96,7 @@ input:checked[type='checkbox']::before {
   height: 100%;
   cursor: pointer;
   stroke: var(--bcg-black);
+  transition: stroke 0.25s;
 }
 
 .darkmode .header-open-menu-icon {
@@ -185,10 +186,19 @@ input:checked[type='checkbox']::before {
   height: 28px;
   cursor: pointer;
   stroke: var(--bcg-black);
+  transition: stroke 0.25s;
+}
+
+.close-btn:hover {
+  stroke: var(--brand-color-lilla);
 }
 
 .darkmode .close-btn {
   stroke: var(--bcg-white);
+}
+
+.darkmode .close-btn:hover {
+  stroke: var(--brand-color-lilla);
 }
 
 .header-nav-list-modal {
